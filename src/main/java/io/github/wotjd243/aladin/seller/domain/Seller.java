@@ -1,40 +1,35 @@
 package io.github.wotjd243.aladin.seller.domain;
 
-import io.github.wotjd243.aladin.common.domain.Email;
-import io.github.wotjd243.aladin.common.domain.Name;
-import io.github.wotjd243.aladin.common.domain.PhoneNumber;
+import io.github.wotjd243.aladin.user.domain.User;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-import java.util.UUID;
+import javax.persistence.*;
 
+@Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Seller {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Name name;
+    @Embedded
+    private User user;
 
-    private PhoneNumber phoneNumber;
-
-    private Email email;
-
-    public Seller(String name, String phoneNumber, String email) {
-        this.id = UUID.randomUUID().getMostSignificantBits();
-        this.name = new Name(name);
-        this.phoneNumber = new PhoneNumber(phoneNumber);
-        this.email = new Email(email);
+    public Long getId() {
+        return id;
     }
 
-    public String getName() {
-        return name.getName();
+    public User getUser() {
+        return user;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber.getPhoneNumber();
+    public Seller(User user) {
+        this.user = user;
     }
 
-    public String getEmail() {
-        return email.getEmail();
+    public static Seller of(String loginId, String password, String name, String phoneNumber, String email) {
+        return new Seller(new User(loginId, password, name, phoneNumber, email));
     }
 }

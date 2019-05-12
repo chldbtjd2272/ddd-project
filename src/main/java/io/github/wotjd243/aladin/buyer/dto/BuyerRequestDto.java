@@ -1,10 +1,10 @@
-package io.github.wotjd243.aladin.user.dto;
+package io.github.wotjd243.aladin.buyer.dto;
 
-import io.github.wotjd243.aladin.user.domain.User;
+import io.github.wotjd243.aladin.buyer.domain.Buyer;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
-public class UserRequestDto {
+public class BuyerRequestDto {
 
     private String loginId;
 
@@ -18,10 +18,8 @@ public class UserRequestDto {
 
     private String address;
 
-    private boolean isSeller;
-
-    public User toEntity() {
-        return User.of(loginId, password, name, phoneNumber, email, address, isSeller);
+    public Buyer toEntity() {
+        return Buyer.of(loginId, password, name, phoneNumber, email, address);
     }
 
     public String getLoginId() {
@@ -46,9 +44,5 @@ public class UserRequestDto {
 
     public String getAddress() {
         return address;
-    }
-
-    public boolean isSeller() {
-        return isSeller;
     }
 }

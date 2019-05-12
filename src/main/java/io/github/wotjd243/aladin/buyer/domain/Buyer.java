@@ -1,48 +1,44 @@
 package io.github.wotjd243.aladin.buyer.domain;
 
 import io.github.wotjd243.aladin.common.domain.Address;
-import io.github.wotjd243.aladin.common.domain.Email;
-import io.github.wotjd243.aladin.common.domain.Name;
-import io.github.wotjd243.aladin.common.domain.PhoneNumber;
+import io.github.wotjd243.aladin.user.domain.User;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-import java.util.UUID;
+import javax.persistence.*;
 
+@Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Buyer {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Name name;
+    @Embedded
+    private User user;
 
-    private PhoneNumber phoneNumber;
-
-    private Email email;
-
+    @Embedded
     private Address address;
 
-    public Buyer(String name, String phoneNumber, String email, String address) {
-        this.id = UUID.randomUUID().getMostSignificantBits();
-        this.name = new Name(name);
-        this.phoneNumber = new PhoneNumber(phoneNumber);
-        this.email = new Email(email);
+    public Buyer(User user, String address) {
+        this.user = user;
         this.address = new Address(address);
     }
 
-    public String getName() {
-        return name.getName();
+    public Long getId() {
+        return id;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber.getPhoneNumber();
+    public User getUser() {
+        return user;
     }
 
-    public String getEmail() {
-        return email.getEmail();
+    public Address getAddress() {
+        return address;
     }
 
-    public String getAddress() {
-        return address.getAddress();
+    public static Buyer of(String loginId, String password, String name, String phoneNumber, String email, String address) {
+        return new Buyer(new User(loginId, password, name, phoneNumber, email), address);
     }
 }
