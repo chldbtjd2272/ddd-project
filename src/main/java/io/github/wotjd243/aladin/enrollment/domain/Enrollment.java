@@ -3,52 +3,42 @@ package io.github.wotjd243.aladin.enrollment.domain;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
-import java.time.LocalDate;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Getter
-@Slf4j
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Entity
 public class Enrollment {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Long sellerId;
 
-    private Event event;
-
-    private UnitAmount amount;
-
+    @OneToMany(mappedBy = "enrollment", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     private List<RegisteredBook> registeredBooks = new ArrayList<>();
 
-    private Enrollment(Long sellerId, Long bookId, Long count, Long unitAmount, Event event) {
-        this.id = UUID.randomUUID().getMostSignificantBits();
+    @OneToMany(mappedBy = "enrollment", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    private List<Event> events = new ArrayList<>();
+
+    public Enrollment(Long sellerId, List<RegisteredBook> registeredBooks, List<Event> events) {
         this.sellerId = sellerId;
-        this.event = event;
-        this.amount = new UnitAmount(unitAmount);
-        generateBooks(bookId, new Count(count));
+        addRegisteredBook(registeredBooks);
+        addEvents(events);
     }
 
-    public static Enrollment of(Long sellerId, Long bookId, Long count, Long unitAmount) {
-        return new Enrollment(sellerId, bookId, count, unitAmount, new Event());
+    public void addRegisteredBook(List<RegisteredBook> registeredBooks) {
+        this.registeredBooks.addAll(registeredBooks);
+        registeredBooks.forEach(registeredBook -> registeredBook.setEnrollment(this));
+
     }
 
-    public static Enrollment ofWithEvent(Long sellerId, Long bookId, Long count, Long unitAmount, LocalDate startDate, LocalDate endDate, Double periodPercent) {
-        return new Enrollment(sellerId, bookId, count, unitAmount, new Event(startDate, endDate, periodPercent));
-    }
-
-    private void generateBooks(Long bookId, Count count) {
-
-        for (long i = 0, length = count.getCount(); i < length; i++) {
-            addRegisteredBook(new RegisteredBook(bookId));
-        }
-    }
-
-    private void addRegisteredBook(RegisteredBook registeredBook) {
-        registeredBooks.add(registeredBook);
+    public void addEvents(List<Event> events) {
+        this.events.addAll(events);
+        events.forEach(event -> event.setEnrollment(this));
     }
 }
