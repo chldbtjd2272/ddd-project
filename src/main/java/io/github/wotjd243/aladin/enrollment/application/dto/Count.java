@@ -1,4 +1,4 @@
-package io.github.wotjd243.aladin.enrollment.domain;
+package io.github.wotjd243.aladin.enrollment.application.dto;
 
 import io.github.wotjd243.aladin.exception.NotFoundException;
 import io.github.wotjd243.aladin.exception.WrongValueException;

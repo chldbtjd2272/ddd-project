@@ -1,10 +1,9 @@
 package io.github.wotjd243.aladin.enrollment.domain;
 
-import java.util.Optional;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface EnrollmentRepository {
-    Optional<Enrollment> findById(Long id);
-
-    void save(Enrollment enrollment);
+@Repository
+public interface EnrollmentRepository extends JpaRepository<Enrollment, Long> {
 
 }
