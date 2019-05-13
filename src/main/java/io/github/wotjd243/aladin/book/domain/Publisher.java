@@ -6,8 +6,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.util.StringUtils;
 
+import javax.persistence.Embeddable;
+
 @Getter
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@Embeddable
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Publisher {
 
     private String publisher;

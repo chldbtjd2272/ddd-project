@@ -1,37 +1,90 @@
 package io.github.wotjd243.aladin.book.domain;
 
 import io.github.wotjd243.aladin.common.domain.Name;
-import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.util.ObjectUtils;
 
-import java.util.UUID;
+import javax.persistence.*;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@Entity
+@NoArgsConstructor
 public class Book {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Embedded
     private Name name;
 
+    @Embedded
     private Author author;
 
+    @Embedded
     private Category category;
 
+    @Embedded
     private Publisher publisher;
 
     private Long price;
 
-    public Book(String name, String author, String category, String publisher) {
-        this.id = UUID.randomUUID().getMostSignificantBits();
+    @Builder(builderMethodName = "createBuilder")
+    private Book(String name, String author, String category, String publisher, Long price) {
         this.name = new Name(name);
         this.author = new Author(author);
         this.category = new Category(category);
         this.publisher = new Publisher(publisher);
+        this.price = price;
     }
 
-    public Long getPrice() {
-        return 10000L;
+    public String getName() {
+
+        if (ObjectUtils.isEmpty(name)) {
+            return "";
+        }
+
+        return name.getName();
+    }
+
+    public String getAuthor() {
+
+        if (ObjectUtils.isEmpty(author)) {
+            return "";
+        }
+
+        return author.getAuthor();
+    }
+
+    public String getCategory() {
+
+        if (ObjectUtils.isEmpty(category)) {
+            return "";
+        }
+
+        return category.getCategory();
+    }
+
+    public String getPublisher() {
+
+        if (ObjectUtils.isEmpty(publisher)) {
+            return "";
+        }
+
+        return publisher.getPublisher();
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", name=" + name.getName() +
+                ", author=" + author.getAuthor() +
+                ", category=" + category.getCategory() +
+                ", publisher=" + publisher.getPublisher() +
+                ", price=" + price +
+                '}';
     }
 }

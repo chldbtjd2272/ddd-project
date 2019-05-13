@@ -2,6 +2,7 @@ package io.github.wotjd243.aladin.book.application;
 
 import io.github.wotjd243.aladin.book.domain.Book;
 import io.github.wotjd243.aladin.book.domain.BookRepository;
+import io.github.wotjd243.aladin.book.ui.dto.BookResponseDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -29,15 +30,30 @@ public class BookServiceTest {
         given(bookRepository.findById(any()))
                 .willReturn(
                         Optional.of(
-                                new Book("이펙티브 자바", "조슈아 블로크", "IT서적", "개앞맵시")
+                                Book.createBuilder()
+                                        .name("이펙티브 자바 (Effective Java)")
+                                        .author("조슈아 블로크")
+                                        .category("IT")
+                                        .publisher("인사이트")
+                                        .price(10000L)
+                                        .build()
                         )
                 )
         ;
 
+        Book book = Book.createBuilder()
+                .name("이펙티브 자바 (Effective Java)")
+                .author("조슈아 블로크")
+                .category("IT")
+                .publisher("인사이트")
+                .price(10000L)
+                .build();
+
         // when
-        boolean isExist = bookService.isExist(1L);
+        BookResponseDto bookDto = bookService.findById(1L);
 
         // then
-        assertThat(isExist).isTrue();
+        assertThat(bookDto.getName()).isEqualTo(book.getName());
+        assertThat(bookDto.getAuthor()).isEqualTo(book.getAuthor());
     }
 }
