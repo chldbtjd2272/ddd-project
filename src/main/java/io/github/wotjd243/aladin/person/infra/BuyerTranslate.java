@@ -25,9 +25,9 @@ public class BuyerTranslate {
 
         return BuyerResponseDto.responseBuilder()
                 .id(buyer.getId())
-                .name(buyer.getUser().getName())
-                .phoneNumber(buyer.getUser().getPhoneNumber())
-                .email(buyer.getUser().getEmail())
+                .name(buyer.getUser().getName().getName())
+                .phoneNumber(buyer.getUser().getPhoneNumber().getPhoneNumber())
+                .email(buyer.getUser().getEmail().getEmail())
                 .address(buyer.getAddress().getAddress())
                 .build();
     }
