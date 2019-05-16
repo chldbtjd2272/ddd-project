@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 @Getter
 @Embeddable
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Reservation {
 
     private Long registeredBookId;

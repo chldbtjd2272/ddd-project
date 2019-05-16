@@ -11,7 +11,7 @@ import java.util.List;
 
 @Getter
 @Embeddable
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Reservations {
 
     private static final int LIMIT_RESERVATION_COUNT = 15;
