@@ -2,16 +2,15 @@ package io.github.wotjd243.aladin.book.application;
 
 import io.github.wotjd243.aladin.book.domain.Book;
 import io.github.wotjd243.aladin.book.domain.BookRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
 @Service
+@RequiredArgsConstructor
 public class BookService {
-    final private BookRepository repository;
 
-    public BookService(BookRepository repository) {
-        this.repository = repository;
-    }
+    private final BookRepository repository;
 
     public boolean isExist(Long id) {
 

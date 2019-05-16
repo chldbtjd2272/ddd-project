@@ -2,14 +2,12 @@ package io.github.wotjd243.aladin.enrollment.application.dto;
 
 import io.github.wotjd243.aladin.enrollment.domain.SellType;
 import io.github.wotjd243.aladin.enrollment.domain.UnitAmount;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class RegisteredBookDto {
+
     private Long bookId;
 
     private Long count;

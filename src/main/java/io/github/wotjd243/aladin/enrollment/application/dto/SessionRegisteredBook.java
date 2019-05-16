@@ -3,15 +3,13 @@ package io.github.wotjd243.aladin.enrollment.application.dto;
 import io.github.wotjd243.aladin.enrollment.domain.RegisteredBook;
 import io.github.wotjd243.aladin.enrollment.domain.SellType;
 import io.github.wotjd243.aladin.enrollment.domain.UnitAmount;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 @ToString
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class SessionRegisteredBook {
+
     private Long bookId;
 
     private UnitAmount amount;

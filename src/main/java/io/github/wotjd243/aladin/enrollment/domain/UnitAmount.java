@@ -11,7 +11,7 @@ import javax.persistence.Embeddable;
 
 @Getter
 @Embeddable
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class UnitAmount {
 
     private long amount;

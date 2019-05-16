@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 
 @Service
-@RequiredArgsConstructor
 @Transactional
+@RequiredArgsConstructor
 public class EnrollmentService {
 
     private final EnrollmentRepository enrollmentRepository;

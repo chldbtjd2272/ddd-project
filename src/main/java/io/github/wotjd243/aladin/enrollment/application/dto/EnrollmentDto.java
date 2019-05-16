@@ -2,13 +2,17 @@ package io.github.wotjd243.aladin.enrollment.application.dto;
 
 import io.github.wotjd243.aladin.enrollment.domain.Enrollment;
 import io.github.wotjd243.aladin.enrollment.domain.RegisteredBook;
+import lombok.AccessLevel;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class EnrollmentDto {
+
     private EventDto eventDto;
     private List<SessionRegisteredBook> registeredBooks;
 

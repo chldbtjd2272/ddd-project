@@ -1,13 +1,14 @@
 package io.github.wotjd243.aladin.book.domain;
 
 import io.github.wotjd243.aladin.common.domain.Name;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.UUID;
 
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Book {
 
     private Long id;

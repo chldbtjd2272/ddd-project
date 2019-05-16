@@ -7,13 +7,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.util.StringUtils;
 
+import javax.persistence.Embeddable;
 import java.util.regex.Pattern;
 
+@Embeddable
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Email {
 
-    private final static String EMAIL_PATTERN = "^(.+)@(.+)$";
+    private final static Pattern EMAIL_PATTERN = Pattern.compile("^(.+)@(.+)$");
 
     private String email;
 
@@ -28,7 +30,7 @@ public class Email {
             throw new NotFoundException("이메일이 없습니다.");
         }
 
-        if (!Pattern.matches(EMAIL_PATTERN, email)) {
+        if (!EMAIL_PATTERN.matcher(email).matches()) {
             throw new WrongValueException(String.format("이메일이 잘못되었습니다. [xxx@xxxx.com] [%s]", email));
         }
 

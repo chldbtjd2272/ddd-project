@@ -1,16 +1,14 @@
 package io.github.wotjd243.aladin.book.ui;
 
 import io.github.wotjd243.aladin.book.application.BookService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequiredArgsConstructor
 public class BookRestController {
-
-    public BookRestController(BookService bookService) {
-        this.bookService = bookService;
-    }
 
     final private BookService bookService;
 
@@ -18,5 +16,4 @@ public class BookRestController {
     public boolean isExist(@PathVariable Long id) {
         return bookService.isExist(id);
     }
-
 }

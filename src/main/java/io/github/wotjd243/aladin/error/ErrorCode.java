@@ -19,7 +19,8 @@ public enum ErrorCode {
 
 
     // Reservation
-    MAX_OVER_RESERVATION(ApiResponseCode.BAD_PARAMETER, "찜 할수 있는 허용범위를 초과했습니다.");
+    MAX_OVER_RESERVATION(ApiResponseCode.BAD_PARAMETER, "찜 할수 있는 허용범위를 초과했습니다."),
+    ALREADY_RESERVATION(ApiResponseCode.BAD_PARAMETER, "이미 예약되었습니다.");
 
     private final ApiResponseCode code;
     private final String message;

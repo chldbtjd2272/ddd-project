@@ -1,51 +1,62 @@
 package io.github.wotjd243.aladin.reservation.application;
 
-import io.github.wotjd243.aladin.enrollment.domain.EnrollmentRepository;
+import io.github.wotjd243.aladin.enrollment.application.RegisteredBookService;
 import io.github.wotjd243.aladin.enrollment.domain.RegisteredBook;
-import io.github.wotjd243.aladin.exception.MaxOverReservationException;
 import io.github.wotjd243.aladin.reservation.domain.Reservation;
-import io.github.wotjd243.aladin.reservation.domain.ReservationRepository;
+import io.github.wotjd243.aladin.reservation.domain.ShoppingBasket;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDate;
 
 @Service
 @RequiredArgsConstructor
 public class ReservationService {
 
-    public static final int LIMIT_RESERVATION_COUNT = 15;
-    private final ReservationRepository reservationRepository;
-    private final EnrollmentRepository enrollmentRepository;
+    private final ShoppingBasketService shoppingBasketService;
+    private final RegisteredBookService registeredBookService;
 
-    public void add(Long buyerId, Long registeredBookId) {
+    @Transactional
+    public void add(String buyerId, Long registeredBookId) {
 
-        enableReservation(buyerId);
-        reserveBook(registeredBookId);
+        ShoppingBasket shoppingBasket = shoppingBasketService.findByBuyerId(buyerId);
 
-        save(new Reservation(buyerId, registeredBookId));
+        RegisteredBook registeredBook = registeredBookService.findById(registeredBookId);
+
+        shoppingBasket.addReservation(reserve(registeredBook));
     }
 
-    private void reserveBook(Long registeredBookId) {
-        RegisteredBook registeredBook = findRegisteredBookId(registeredBookId);
-        // 등록된 책을 찜하는 기능
+    @Transactional
+    public void delete(String buyerId, Long registeredBookId) {
+
+        ShoppingBasket shoppingBasket = shoppingBasketService.findByBuyerId(buyerId);
+
+        RegisteredBook registeredBook = registeredBookService.findById(registeredBookId);
+
+        shoppingBasket.removeReservation(cancel(registeredBook));
     }
 
-    private void save(Reservation reservation) {
+    private Reservation cancel(RegisteredBook registeredBook) {
 
-        reservationRepository.save(reservation);
+        registeredBook.cancel();
+
+        return convert(registeredBook);
     }
 
-    /**
-     * todo Id를 가지고 등록된 책을 찾는다.
-     */
-    private RegisteredBook findRegisteredBookId(Long registeredBookId) {
+    private Reservation reserve(RegisteredBook registeredBook) {
 
+        registeredBook.reserve();
+
+        return convert(registeredBook);
+    }
+
+    private Reservation convert(RegisteredBook registeredBook) {
         return null;
+//        return new Reservation(registeredBook.getBookId(), getDate(), null, null, null);
     }
 
-    private void enableReservation(Long buyerId) {
-
-        if (reservationRepository.countByBuyerId(buyerId) >= LIMIT_RESERVATION_COUNT) {
-            throw new MaxOverReservationException(String.format("최대 %s 권을 찜할 수 있습니다.", LIMIT_RESERVATION_COUNT));
-        }
+    LocalDate getDate() {
+        return LocalDate.now();
     }
 }

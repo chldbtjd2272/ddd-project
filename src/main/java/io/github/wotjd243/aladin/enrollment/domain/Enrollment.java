@@ -9,8 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Enrollment {
 
     @Id
@@ -31,13 +31,13 @@ public class Enrollment {
         addEvents(events);
     }
 
-    public void addRegisteredBook(List<RegisteredBook> registeredBooks) {
+    private void addRegisteredBook(List<RegisteredBook> registeredBooks) {
         this.registeredBooks.addAll(registeredBooks);
         registeredBooks.forEach(registeredBook -> registeredBook.setEnrollment(this));
 
     }
 
-    public void addEvents(List<Event> events) {
+    private void addEvents(List<Event> events) {
         this.events.addAll(events);
         events.forEach(event -> event.setEnrollment(this));
     }

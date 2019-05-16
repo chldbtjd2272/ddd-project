@@ -3,12 +3,13 @@ package io.github.wotjd243.aladin.enrollment.ui.dto;
 import io.github.wotjd243.aladin.enrollment.application.dto.RegisteredBookDto;
 import io.github.wotjd243.aladin.enrollment.domain.SellType;
 import io.github.wotjd243.aladin.exception.WrongValueException;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.util.ObjectUtils;
 
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class UsedBookEnrollmentRequest {
 
     private Long bookId;
