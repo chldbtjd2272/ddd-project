@@ -8,11 +8,14 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Embedded;
+import javax.persistence.*;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@Embeddable
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(uniqueConstraints = @UniqueConstraint(name = "UNIQUE_LOGIN_ID", columnNames = {"loginId"}))
 public class User {
+
 
     private String password;
 
@@ -33,15 +36,10 @@ public class User {
         this.email = new Email(email);
     }
 
-    public String getName() {
-        return name.getName();
+    public void update(String password, String name, String phoneNumber) {
+        this.password = password;
+        this.name = new Name(name);
+        this.phoneNumber = new PhoneNumber(phoneNumber);
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber.getPhoneNumber();
-    }
-
-    public String getEmail() {
-        return email.getEmail();
-    }
 }

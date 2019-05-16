@@ -2,5 +2,9 @@ package io.github.wotjd243.aladin.person.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface SellerRepository extends JpaRepository<Seller, String> {
+import java.util.Optional;
+
+public interface SellerRepository extends JpaRepository<Seller, Long> {
+
+    Optional<Seller> findById(String id);
 }

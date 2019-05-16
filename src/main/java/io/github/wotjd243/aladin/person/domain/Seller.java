@@ -11,7 +11,7 @@ import javax.persistence.Id;
 
 @Getter
 @Entity
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Seller {
 
     @Id
@@ -20,10 +20,14 @@ public class Seller {
     @Embedded
     private User user;
 
-
     @Builder(builderMethodName = "createBuilder")
     private Seller(final String id, final String password, final String name, final String phoneNumber, final String email) {
         this.id = id;
         this.user = new User(password, name, phoneNumber, email);
+    }
+
+
+    public void update(String password, String name, String phoneNumber) {
+        user.update(password, name, phoneNumber);
     }
 }
