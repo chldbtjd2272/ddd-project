@@ -16,9 +16,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
-import static io.github.wotjd243.aladin.reservation.application.ReservationService.LIMIT_RESERVATION_COUNT;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.willThrow;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -40,6 +40,7 @@ public class ReservationControllerMockTest {
         //given
         //when
         MvcResult mvcResult = this.mockMvc.perform(post("/reservation")
+                .header("user-id", "1")
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
         )
                 .andDo(print())
@@ -61,6 +62,7 @@ public class ReservationControllerMockTest {
 
         //when
         MvcResult mvcResult = this.mockMvc.perform(post("/reservation")
+                .header("user-id", "1")
                 .content(requestBody)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
         )
@@ -83,6 +85,7 @@ public class ReservationControllerMockTest {
 
         //when
         MvcResult mvcResult = this.mockMvc.perform(post("/reservation")
+                .header("user-id", "1")
                 .content(requestBody)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
         )
@@ -103,12 +106,13 @@ public class ReservationControllerMockTest {
         //given
         String requestBody = "{\"bookId\":1}";
 
-        willThrow(new MaxOverReservationException(String.format("최대 %s 권을 찜할 수 있습니다.", LIMIT_RESERVATION_COUNT)))
+        willThrow(new MaxOverReservationException(String.format("최대 %s 권을 찜할 수 있습니다.", 15)))
                 .given(reservationService)
-                .add(anyLong(), anyLong());
+                .add(anyString(), anyLong());
 
         //when
         MvcResult mvcResult = this.mockMvc.perform(post("/reservation")
+                .header("user-id", "1")
                 .content(requestBody)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
         )
@@ -131,6 +135,7 @@ public class ReservationControllerMockTest {
 
         //when
         MvcResult mvcResult = this.mockMvc.perform(post("/reservation")
+                .header("user-id", "1")
                 .content(requestBody)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
         )

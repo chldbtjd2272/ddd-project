@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.util.ObjectUtils;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Count {
 
     private long count;

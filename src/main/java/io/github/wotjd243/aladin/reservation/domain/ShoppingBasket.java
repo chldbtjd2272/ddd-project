@@ -1,0 +1,41 @@
+package io.github.wotjd243.aladin.reservation.domain;
+
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.Collections;
+
+@Getter
+@Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class ShoppingBasket {
+
+    @Id
+    private String buyerId;
+
+    @Embedded
+    private Reservations reservations;
+
+    public ShoppingBasket(String buyerId) {
+        this.buyerId = buyerId;
+        this.reservations = new Reservations(Collections.emptyList());
+    }
+
+    public ShoppingBasket(String buyerId, Reservations reservations) {
+        this.buyerId = buyerId;
+        this.reservations = reservations;
+    }
+
+    public void removeReservation(Reservation reservation) {
+        reservations.remove(reservation);
+    }
+
+    public void addReservation(Reservation reservation) {
+
+        reservations.add(reservation);
+    }
+}

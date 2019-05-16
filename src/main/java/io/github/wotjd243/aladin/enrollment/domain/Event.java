@@ -9,8 +9,8 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Event {
 
     @Id

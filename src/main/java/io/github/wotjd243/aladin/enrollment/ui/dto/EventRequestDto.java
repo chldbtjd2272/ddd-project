@@ -2,6 +2,7 @@ package io.github.wotjd243.aladin.enrollment.ui.dto;
 
 import io.github.wotjd243.aladin.enrollment.application.dto.EventDto;
 import io.github.wotjd243.aladin.exception.WrongValueException;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.util.ObjectUtils;
@@ -10,8 +11,9 @@ import java.time.LocalDate;
 
 
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class EventRequestDto {
+
     private LocalDate startDate;
 
     private LocalDate endDate;

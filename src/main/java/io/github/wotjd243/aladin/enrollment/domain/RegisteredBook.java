@@ -1,13 +1,15 @@
 package io.github.wotjd243.aladin.enrollment.domain;
 
+import io.github.wotjd243.aladin.exception.AlreadyReservationException;
+import io.github.wotjd243.aladin.exception.NotFoundException;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class RegisteredBook {
 
     @Id
@@ -19,9 +21,9 @@ public class RegisteredBook {
     @Embedded
     private UnitAmount amount;
 
+    @Enumerated(EnumType.STRING)
     private SellType sellType;
 
-    @Column(columnDefinition = "Boolean default false")
     private boolean reserved;
 
     @Setter
@@ -30,30 +32,35 @@ public class RegisteredBook {
     private Enrollment enrollment;
 
     @Builder
-    public RegisteredBook(Long bookId, UnitAmount unitAmount, List<Event> eventsm, SellType sellType) {
+    public RegisteredBook(Long bookId, UnitAmount unitAmount, SellType sellType) {
         this.bookId = bookId;
         this.amount = unitAmount;
         this.sellType = sellType;
     }
 
     public void reserve() {
-        if (isReserved()) {
-            throw new RuntimeException();
 
+        if (isReserved()) {
+            throw new AlreadyReservationException();
         }
+
         reserved = true;
     }
 
     public void cancel() {
-        if (!isReserved()) {
-            throw new RuntimeException();
 
+        if (isCanceled()) {
+            throw new AlreadyReservationException("이미 예약 취소 되었습니다.");
         }
+
         reserved = false;
     }
 
-    public boolean isReserved() {
+    private boolean isReserved() {
         return reserved;
     }
 
+    private boolean isCanceled() {
+        return !reserved;
+    }
 }

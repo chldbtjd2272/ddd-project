@@ -7,10 +7,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.util.StringUtils;
 
+import javax.persistence.Embeddable;
 import java.util.regex.Pattern;
 
+@Embeddable
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PhoneNumber {
 
     private final static Pattern PHONE_NUMBER_PATTERN = Pattern.compile("^01(?:0|1|[6-9])-\\d{3,4}-\\d{4}$");
@@ -18,10 +20,12 @@ public class PhoneNumber {
     private String phoneNumber;
 
     public PhoneNumber(String phoneNumber) {
+
         this.phoneNumber = validation(phoneNumber);
     }
 
     private String validation(String phoneNumber) {
+
         if (StringUtils.isEmpty(phoneNumber)) {
             throw new NotFoundException("전화번호가 없습니다.");
         }

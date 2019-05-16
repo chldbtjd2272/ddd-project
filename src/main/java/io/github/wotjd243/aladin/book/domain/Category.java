@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.util.StringUtils;
 
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Category {
 
     private String category;
