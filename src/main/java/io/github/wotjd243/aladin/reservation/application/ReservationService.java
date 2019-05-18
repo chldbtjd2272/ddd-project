@@ -2,6 +2,7 @@ package io.github.wotjd243.aladin.reservation.application;
 
 import io.github.wotjd243.aladin.book.application.RegisteredBookService;
 import io.github.wotjd243.aladin.book.domain.RegisteredBook;
+import io.github.wotjd243.aladin.exception.NotFoundException;
 import io.github.wotjd243.aladin.reservation.domain.Reservation;
 import io.github.wotjd243.aladin.reservation.domain.ShoppingBasket;
 import lombok.RequiredArgsConstructor;
@@ -32,16 +33,20 @@ public class ReservationService {
 
         ShoppingBasket shoppingBasket = shoppingBasketService.findByBuyerId(buyerId);
 
+        if (!shoppingBasket.exists(registeredBookId)) {
+            throw new NotFoundException(String.format("[%s] 책이 존재하지 않습니다.", registeredBookId));
+        }
+
         RegisteredBook registeredBook = registeredBookService.findById(registeredBookId);
 
         shoppingBasket.removeReservation(cancel(registeredBook));
     }
 
-    private Reservation cancel(RegisteredBook registeredBook) {
+    private Long cancel(RegisteredBook registeredBook) {
 
         registeredBook.cancel();
 
-        return convert(registeredBook);
+        return registeredBook.getId();
     }
 
     private Reservation reserve(RegisteredBook registeredBook) {
@@ -53,7 +58,7 @@ public class ReservationService {
 
     private Reservation convert(RegisteredBook registeredBook) {
 
-        return new Reservation(registeredBook.getBookId(), getDate(), registeredBook.getAmount().getAmount());
+        return new Reservation(registeredBook.getId(), getDate());
     }
 
     LocalDate getDate() {

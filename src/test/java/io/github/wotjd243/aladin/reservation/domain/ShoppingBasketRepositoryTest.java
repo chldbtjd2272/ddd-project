@@ -33,8 +33,8 @@ public class ShoppingBasketRepositoryTest {
         //given
         String buyerId = "1";
         Reservations reservations = new Reservations(Arrays.asList(
-                new Reservation(1L, LocalDate.of(2019, 5, 14), 20000L),
-                new Reservation(2L, LocalDate.of(2019, 5, 14), 30000L)
+                new Reservation(1L, LocalDate.of(2019, 5, 14)),
+                new Reservation(2L, LocalDate.of(2019, 5, 14))
         ));
 
         ShoppingBasket shoppingBasket = new ShoppingBasket(buyerId, reservations);
@@ -56,14 +56,14 @@ public class ShoppingBasketRepositoryTest {
         //given
         String buyerId = "1";
         Reservations reservations = new Reservations(Arrays.asList(
-                new Reservation(1L, LocalDate.of(2019, 5, 14), 20000L),
-                new Reservation(2L, LocalDate.of(2019, 5, 14), 30000L)
+                new Reservation(1L, LocalDate.of(2019, 5, 14)),
+                new Reservation(2L, LocalDate.of(2019, 5, 14))
         ));
 
         ShoppingBasket shoppingBasket = new ShoppingBasket(buyerId, reservations);
         //when
         shoppingBasketRepository.save(shoppingBasket);
-        shoppingBasket.removeReservation(reservations.getReservations().get(1));
+        shoppingBasket.removeReservation(reservations.getReservations().get(1).getRegisteredBookId());
         shoppingBasketRepository.save(shoppingBasket);
         //then
         ShoppingBasket result = shoppingBasketRepository.findById(buyerId)
@@ -80,14 +80,14 @@ public class ShoppingBasketRepositoryTest {
         //given
         String buyerId = "1";
         Reservations reservations = new Reservations(Arrays.asList(
-                new Reservation(1L, LocalDate.of(2019, 5, 14), 20000L),
-                new Reservation(2L, LocalDate.of(2019, 5, 14), 30000L)
+                new Reservation(1L, LocalDate.of(2019, 5, 14)),
+                new Reservation(2L, LocalDate.of(2019, 5, 14))
         ));
 
         ShoppingBasket shoppingBasket = new ShoppingBasket(buyerId, reservations);
         //when
         shoppingBasketRepository.save(shoppingBasket);
-        shoppingBasket.addReservation(new Reservation(3L, LocalDate.of(2019, 5, 14), 30000L));
+        shoppingBasket.addReservation(new Reservation(3L, LocalDate.of(2019, 5, 14)));
         shoppingBasketRepository.save(shoppingBasket);
         //then
         ShoppingBasket result = shoppingBasketRepository.findById(buyerId)
