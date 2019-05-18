@@ -37,7 +37,7 @@ public class BuyerService {
     public Buyer findById(String id) {
 
         return buyerRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException(String.format("[%s] 존재하지 않는 구매자 입니다.")));
+                .orElseThrow(() -> new NotFoundException(String.format("[%s] 존재하지 않는 구매자 입니다.", id)));
     }
 
     @Transactional
@@ -52,13 +52,13 @@ public class BuyerService {
 
     public Buyer loginBuyer(BuyerLoginDto loginDto) {
         Buyer buyer = buyerRepository.findById(loginDto.getId())
-                .orElseThrow(() -> new NotFoundException(String.format("[%s] 존재하지 않는 구매자 입니다.")));
+                .orElseThrow(() -> new NotFoundException(String.format("[%s] 존재하지 않는 아이디 입니다.", loginDto.getId())));
 
         if (buyer.getUser().getPassword().equals(loginDto.getPassword())) {
             return buyer;
         }
 
-        throw new BusinessException(HANDLE_ACCESS_DENIED, "로그인에 실패했습니다.");
+        throw new BusinessException(HANDLE_ACCESS_DENIED, "비밀번호가 일치하지 않습니다.");
     }
 
 }

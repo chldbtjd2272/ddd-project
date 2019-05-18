@@ -36,14 +36,14 @@ public class SellerService {
     public Seller findById(String id) {
 
         return sellerRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException(String.format("[%s] 존재하지 않는 판매자 입니다.")));
+                .orElseThrow(() -> new NotFoundException(String.format("[%s] 존재하지 않는 판매자 입니다.", id)));
     }
 
     @Transactional
     public Seller updateSeller(String id, SellerUpdateDto update) {
 
         Seller seller = sellerRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException(String.format("[%s] 존재하지 않는 판매자 입니다.")));
+                .orElseThrow(() -> new NotFoundException(String.format("[%s] 존재하지 않는 판매자 입니다.", id)));
 
         seller.update(update.getPassword(), update.getName(), update.getPhoneNumber());
         return seller;
@@ -52,12 +52,12 @@ public class SellerService {
     public Seller loginSeller(SellerLoginDto loginDto) {
 
         Seller seller = sellerRepository.findById(loginDto.getId())
-                .orElseThrow(() -> new NotFoundException(String.format("[%s] 존재하지 않는 판매자 입니다.")));
+                .orElseThrow(() -> new NotFoundException(String.format("[%s] 존재하지 않는 아이디 입니다.", loginDto.getId())));
 
         if (seller.getUser().getPassword().equals(loginDto.getPassword())) {
             return seller;
         }
 
-        throw new BusinessException(HANDLE_ACCESS_DENIED, "로그인에 실패했습니다.");
+        throw new BusinessException(HANDLE_ACCESS_DENIED, "비밀번호가 일치하지 않습니다.");
     }
 }
