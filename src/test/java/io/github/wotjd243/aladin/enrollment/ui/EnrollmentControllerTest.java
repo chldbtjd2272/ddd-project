@@ -1,7 +1,6 @@
 package io.github.wotjd243.aladin.enrollment.ui;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.wotjd243.aladin.enrollment.domain.Enrollment;
 import io.github.wotjd243.aladin.enrollment.domain.EnrollmentRepository;
 import io.github.wotjd243.aladin.response.ApiResponse;
 import io.github.wotjd243.aladin.response.ApiResponseCode;
@@ -39,7 +38,7 @@ public class EnrollmentControllerTest {
     }
 
     @Test
-    public void 새책_성공_생성요청() throws Exception {
+    public void 등록된_책없이_저장시도() throws Exception {
 
         //given
         String requestBody = "{\"startDate\":\"2019-05-08\",\"endDate\":\"2019-05-09\",\"periodPercent\":10}";
@@ -48,6 +47,7 @@ public class EnrollmentControllerTest {
         MvcResult mvcResult = this.mockMvc.perform(post("/enrollment")
                 .content(requestBody)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
+                .header("user-id", "cys")
         )
                 .andExpect(status().isOk())
                 .andDo(print())
@@ -56,12 +56,9 @@ public class EnrollmentControllerTest {
         //then
         ApiResponse apiResponse = getApiResponse(mvcResult);
 
-        assertThat(apiResponse.getCode()).isEqualTo(ApiResponseCode.OK);
-        assertThat(apiResponse.getMessage()).isEqualTo("요청이 성공하였습니다.");
-        Enrollment enrollment = findEnrollment();
+        assertThat(apiResponse.getCode()).isEqualTo(ApiResponseCode.BAD_PARAMETER);
+        assertThat(apiResponse.getMessage()).isEqualTo("등록된 책이 없습니다.");
 
-        assertThat(enrollment.getSellerId()).isEqualTo("1L");
-        assertThat(enrollment.getId()).isEqualTo(1L);
     }
 
     ApiResponse getApiResponse(MvcResult mvcResult) throws java.io.IOException {
@@ -70,10 +67,6 @@ public class EnrollmentControllerTest {
         ObjectMapper mapper = new ObjectMapper();
 
         return mapper.readValue(mockHttpServletResponse.getContentAsString(), ApiResponse.class);
-    }
-
-    Enrollment findEnrollment() {
-        return enrollmentRepository.findById(1L).orElseThrow(RuntimeException::new);
     }
 
 }

@@ -8,6 +8,7 @@ import io.github.wotjd243.aladin.enrollment.domain.Enrollment;
 import io.github.wotjd243.aladin.enrollment.domain.EnrollmentRepository;
 import io.github.wotjd243.aladin.enrollment.domain.Event;
 import io.github.wotjd243.aladin.exception.NotFoundException;
+import io.github.wotjd243.aladin.exception.WrongValueException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -30,8 +31,21 @@ public class EnrollmentService {
     }
 
     public void save(EnrollmentDto enrollmentDto, List<RegisteredBookDto> registeredBookDtos) {
+        validateRegisteredBook(enrollmentDto.getSellerId(), registeredBookDtos);
         Enrollment enrollment = enrollmentRepository.save(convert(enrollmentDto));
         registeredBookService.save(enrollment.getId(), registeredBookDtos);
+    }
+
+    private void validateRegisteredBook(String sellerId, List<RegisteredBookDto> registeredBookDtos) {
+        if (registeredBookDtos.isEmpty()) {
+            throw new WrongValueException("등록된 책이 없습니다.");
+        }
+
+        registeredBookDtos.forEach(registeredBookDto -> {
+            if (!registeredBookDto.getSellerId().equals(sellerId)) {
+                throw new WrongValueException("로그인한 유저와 등록한 유저가 다릅니다.");
+            }
+        });
     }
 
     private Enrollment convert(EnrollmentDto dto) {
