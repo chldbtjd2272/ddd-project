@@ -1,6 +1,6 @@
 package io.github.wotjd243.aladin.common;
 
-import io.github.wotjd243.aladin.enrollment.application.dto.SessionRegisteredBook;
+import io.github.wotjd243.aladin.book.application.RegisteredBookDto;
 import org.springframework.util.ObjectUtils;
 
 import javax.servlet.http.HttpSession;
@@ -10,15 +10,15 @@ import java.util.List;
 public class HttpSessionUtil {
     public static final String REGISTERED_BOOK_SESSION_KEY = "registeredBook";
 
-    public static List<SessionRegisteredBook> getSessionRegisteredBook(HttpSession session) {
+    public static List<RegisteredBookDto> getSessionRegisteredBook(HttpSession session) {
         if (hasSession(session)) {
-            return (List<SessionRegisteredBook>) session.getAttribute(REGISTERED_BOOK_SESSION_KEY);
+            return (List<RegisteredBookDto>) session.getAttribute(REGISTERED_BOOK_SESSION_KEY);
         }
         return new ArrayList<>();
     }
 
-    public static void setSessionRegisteredBook(HttpSession session, List<SessionRegisteredBook> sessionRegisteredBooks) {
-        session.setAttribute(REGISTERED_BOOK_SESSION_KEY, sessionRegisteredBooks);
+    public static void setSessionRegisteredBook(HttpSession session, List<RegisteredBookDto> registeredBookDtos) {
+        session.setAttribute(REGISTERED_BOOK_SESSION_KEY, registeredBookDtos);
     }
 
     public static boolean hasSession(HttpSession session) {

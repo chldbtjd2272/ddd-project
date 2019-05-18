@@ -1,8 +1,14 @@
 package io.github.wotjd243.aladin.enrollment.ui;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.github.wotjd243.aladin.book.domain.Book;
+import io.github.wotjd243.aladin.book.domain.BookRepository;
+import io.github.wotjd243.aladin.book.ui.dto.NewBookEnrollmentRequest;
+import io.github.wotjd243.aladin.book.ui.dto.UsedBookEnrollmentRequest;
 import io.github.wotjd243.aladin.response.ApiResponse;
 import io.github.wotjd243.aladin.response.ApiResponseCode;
+import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,15 +33,28 @@ public class RegisteredBookControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
+    @Autowired
+    private BookRepository repository;
+
+    private ObjectMapper objectMapper = new ObjectMapper();
+
+
+    @After
+    public void tearDown() throws Exception {
+        repository.deleteAll();
+    }
+
     @Test
     public void 새책_성공_생성요청() throws Exception {
 
         //given
-        String requestBody = "{\"bookId\":1,\"count\":10}";
+
+        Book book = createBook();
+        NewBookEnrollmentRequest requestBody = createNewBookBody(book);
 
         //when
         MvcResult mvcResult = this.mockMvc.perform(post("/registered-books/new")
-                .content(requestBody)
+                .content(convertString(requestBody))
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
         )
                 .andExpect(status().isOk())
@@ -53,11 +72,13 @@ public class RegisteredBookControllerTest {
     public void 중고책_성공_생성요청() throws Exception {
 
         //given
-        String requestBody = "{\"bookId\":1,\"amount\":10000}";
+        Book book = createBook();
+
+        UsedBookEnrollmentRequest requestBody = createUsedBookBody(book);
 
         //when
         MvcResult mvcResult = this.mockMvc.perform(post("/registered-books/used")
-                .content(requestBody)
+                .content(convertString(requestBody))
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
         )
                 .andExpect(status().isOk())
@@ -77,6 +98,38 @@ public class RegisteredBookControllerTest {
         ObjectMapper mapper = new ObjectMapper();
 
         return mapper.readValue(mockHttpServletResponse.getContentAsString(), ApiResponse.class);
+    }
+
+
+    private Book createBook() {
+        Book book = Book.createBuilder()
+                .name("자바")
+                .author("토비")
+                .category("IT")
+                .publisher("한빛")
+                .price(10000L)
+                .build();
+
+        repository.save(book);
+        return repository.findAll().get(0);
+    }
+
+    private NewBookEnrollmentRequest createNewBookBody(Book book) {
+        return NewBookEnrollmentRequest.createBuilder()
+                .bookId(book.getId())
+                .count(10L)
+                .build();
+    }
+
+    private UsedBookEnrollmentRequest createUsedBookBody(Book book) {
+        return UsedBookEnrollmentRequest.createBuilder()
+                .bookId(book.getId())
+                .amount(10000L)
+                .build();
+    }
+
+    private String convertString(Object body) throws JsonProcessingException {
+        return objectMapper.writeValueAsString(body);
     }
 
 }

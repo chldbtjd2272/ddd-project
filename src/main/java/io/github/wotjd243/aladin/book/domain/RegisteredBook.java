@@ -1,6 +1,8 @@
-package io.github.wotjd243.aladin.enrollment.domain;
+package io.github.wotjd243.aladin.book.domain;
 
 import io.github.wotjd243.aladin.common.domain.UnitAmount;
+import io.github.wotjd243.aladin.enrollment.domain.Enrollment;
+import io.github.wotjd243.aladin.enrollment.domain.SellType;
 import io.github.wotjd243.aladin.exception.AlreadyReservationException;
 import lombok.*;
 

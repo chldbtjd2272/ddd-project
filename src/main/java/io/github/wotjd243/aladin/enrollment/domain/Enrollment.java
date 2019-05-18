@@ -1,5 +1,6 @@
 package io.github.wotjd243.aladin.enrollment.domain;
 
+import io.github.wotjd243.aladin.book.domain.RegisteredBook;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
