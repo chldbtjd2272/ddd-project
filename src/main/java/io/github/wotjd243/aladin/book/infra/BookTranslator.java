@@ -10,7 +10,7 @@ public class BookTranslator {
     public static Book translate(BookApiResponseDto.Item item, String category) {
 
         return Book.createBuilder()
-                .name(item.getTitle())
+                .name(item.getOriginTitle())
                 .author(item.getAuthor())
                 .category(category)
                 .publisher(item.getPublisher())
