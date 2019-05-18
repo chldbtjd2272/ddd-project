@@ -3,9 +3,10 @@ package io.github.wotjd243.aladin.book.application;
 import io.github.wotjd243.aladin.book.application.dto.RegisteredBookDto;
 import io.github.wotjd243.aladin.book.application.dto.RegisteredBookRequestDto;
 import io.github.wotjd243.aladin.book.domain.Book;
-import io.github.wotjd243.aladin.book.domain.BookRepository;
 import io.github.wotjd243.aladin.book.domain.RegisteredBook;
 import io.github.wotjd243.aladin.book.domain.RegisteredBookRepository;
+import io.github.wotjd243.aladin.book.infra.RegisteredBookTranslator;
+import io.github.wotjd243.aladin.book.infra.dto.RegisteredBookResponse;
 import io.github.wotjd243.aladin.enrollment.domain.SellType;
 import io.github.wotjd243.aladin.exception.NotFoundException;
 import io.github.wotjd243.aladin.exception.WrongValueException;
@@ -22,7 +23,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class RegisteredBookService {
 
-    private final BookRepository bookRepository;
+    private final BookService bookService;
     private final RegisteredBookRepository registeredBookRepository;
 
     private final RegisteredBookSessionManager sessionManager;
@@ -34,7 +35,7 @@ public class RegisteredBookService {
     }
 
     public void save(HttpSession session, RegisteredBookRequestDto registeredBookRequestDto) {
-        Book book = findBy(registeredBookRequestDto);
+        Book book = bookService.findById(registeredBookRequestDto.getBookId());
 
         if (registeredBookRequestDto.getSellType() == SellType.NEW) {
             registeredBookRequestDto.setAmount(book.getPrice());
@@ -50,10 +51,6 @@ public class RegisteredBookService {
         if (price < amountOfUsedBook) {
             throw new WrongValueException("원래 책값보다 비쌉니다.");
         }
-    }
-
-    private Book findBy(RegisteredBookRequestDto dto) {
-        return bookRepository.findById(dto.getBookId()).orElseThrow(() -> new NotFoundException("책을 찾을 수 없습니다."));
     }
 
     public void save(Long enrollmentId, List<RegisteredBookDto> registeredBookDtos) {
@@ -73,7 +70,14 @@ public class RegisteredBookService {
                 .build();
     }
 
-    public List<RegisteredBook> findBy(Pageable convert) {
-        return registeredBookRepository.findAll(convert).getContent();
+    public List<RegisteredBookResponse> findBy(Pageable convert) {
+        List<RegisteredBook> registeredBooks = registeredBookRepository.findAll(convert)
+                .getContent();
+
+        return registeredBooks.stream()
+                .map(registeredBook -> {
+                    String bookName = bookService.findById(registeredBook.getBookId()).getName();
+                    return RegisteredBookTranslator.translate(registeredBook, bookName);
+                }).collect(Collectors.toList());
     }
 }
