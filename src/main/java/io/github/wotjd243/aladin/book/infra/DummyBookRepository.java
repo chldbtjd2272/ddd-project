@@ -6,11 +6,15 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-@Repository
-public class DummyBookRepository implements BookRepository {
-
-    @Override
-    public Optional<Book> findById(Long id) {
-        return Optional.ofNullable(DummyBookData.get(id));
-    }
-}
+//@Repository
+//public class DummyBookRepository implements BookRepository {
+//
+//    @Override
+//    public Optional<Book> findById(Long id) {
+//        return Optional.ofNullable(DummyBookData.get(id));
+//    }
+//
+//    @Override
+//    public void save(Book book) {
+//    }
+//}

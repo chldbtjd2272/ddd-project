@@ -20,22 +20,28 @@ public class DummyBookData {
         put(9L, "사피엔스", "유발 하라리", "인문학", "김영사");
         put(10L, "돌이킬 수 없는 약속", "야쿠마루 가쿠", "소설", "북플라자");
         put(11L, "82년생 김지영", "조남주", "소설", "민음사");
-        put(12L,"코스모스", "칼세이건", "과학", "사이언스북스");
-        put(13L,"개인주의자 선언", "문유석", "인문학", "문학동네");
-        put(14L,"나미야 잡화점의 기적", "히가시노 게이고", "소설", "현대문학");
-        put(15L,"침묵의 봄", "레이첼 카슨", "과학", "에코리브르");
-        put(16L,"데미안", "헤르만 헤세", "고전", "문학동네");
-        put(17L,"융의 영혼의 지도", "머레이 스타인", "심리학", "문예출판사");
-        put(18L,"영어회화 100일의 기적", "문성현", "외국어", "넥서스");
-        put(19L,"봉제인형 살인사건", "다니엘 콜", "소설", "북플라자");
-        put(20L,"내가 확실히 아는 것들", "오프라 윈프리", "에세이", "북하우스");
+        put(12L, "코스모스", "칼세이건", "과학", "사이언스북스");
+        put(13L, "개인주의자 선언", "문유석", "인문학", "문학동네");
+        put(14L, "나미야 잡화점의 기적", "히가시노 게이고", "소설", "현대문학");
+        put(15L, "침묵의 봄", "레이첼 카슨", "과학", "에코리브르");
+        put(16L, "데미안", "헤르만 헤세", "고전", "문학동네");
+        put(17L, "융의 영혼의 지도", "머레이 스타인", "심리학", "문예출판사");
+        put(18L, "영어회화 100일의 기적", "문성현", "외국어", "넥서스");
+        put(19L, "봉제인형 살인사건", "다니엘 콜", "소설", "북플라자");
+        put(20L, "내가 확실히 아는 것들", "오프라 윈프리", "에세이", "북하우스");
     }
 
     public static Book get(Long id) {
         return data.get(id);
     }
 
-    private static Book put(Long id, String name, String author, String category, String publisher) {
-        return data.put(id, new Book(name, author, category, publisher));
+    public static Book put(Long id, String name, String author, String category, String publisher) {
+        return data.put(id, Book.createBuilder()
+                .name(name)
+                .author(author)
+                .category(category)
+                .publisher(publisher)
+                .price(10000L).build());
     }
+
 }

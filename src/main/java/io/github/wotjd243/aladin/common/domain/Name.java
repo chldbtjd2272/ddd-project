@@ -8,9 +8,9 @@ import org.springframework.util.StringUtils;
 
 import javax.persistence.Embeddable;
 
-@Embeddable
 @Getter
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@Embeddable
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Name {
 
     private String name;

@@ -1,8 +1,7 @@
 package io.github.wotjd243.aladin.book.domain;
 
-import java.util.Optional;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface BookRepository {
+public interface BookRepository extends JpaRepository<Book, Long> {
 
-    Optional<Book> findById(Long id);
 }
