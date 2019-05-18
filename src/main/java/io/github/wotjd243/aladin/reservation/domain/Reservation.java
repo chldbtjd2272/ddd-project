@@ -16,11 +16,8 @@ public class Reservation {
 
     private LocalDate reservationDate;
 
-    private Long amount;
-
-    public Reservation(Long registeredBookId, LocalDate reservationDate, Long amount) {
+    public Reservation(Long registeredBookId, LocalDate reservationDate) {
         this.registeredBookId = registeredBookId;
         this.reservationDate = reservationDate;
-        this.amount = amount;
     }
 }

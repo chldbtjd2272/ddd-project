@@ -1,4 +1,4 @@
-package io.github.wotjd243.aladin.reservation.ui.dto;
+package io.github.wotjd243.aladin.reservation.application.dto;
 
 import io.github.wotjd243.aladin.utils.LongConvert;
 import lombok.AccessLevel;

@@ -1,7 +1,7 @@
 package io.github.wotjd243.aladin.reservation.ui;
 
 import io.github.wotjd243.aladin.reservation.application.ReservationService;
-import io.github.wotjd243.aladin.reservation.ui.dto.ReservationCreateDto;
+import io.github.wotjd243.aladin.reservation.application.dto.ReservationCreateDto;
 import io.github.wotjd243.aladin.response.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

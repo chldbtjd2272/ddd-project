@@ -30,12 +30,17 @@ public class ShoppingBasket {
         this.reservations = reservations;
     }
 
-    public void removeReservation(Reservation reservation) {
-        reservations.remove(reservation);
+    public void removeReservation(Long registeredBookId) {
+
+        reservations.remove(registeredBookId);
     }
 
     public void addReservation(Reservation reservation) {
 
         reservations.add(reservation);
+    }
+
+    public boolean exists(Long registeredBookId) {
+        return reservations.exists(registeredBookId);
     }
 }
