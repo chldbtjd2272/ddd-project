@@ -1,0 +1,652 @@
+GET http://localhost:8080/registered-books?pageNumber=2
+Content-Type: application/json
+user-id: cys
+
+<> 2019-05-19T031636.200.json
+
+###
+
+GET http://localhost:8080/registered-books?pageNumber=1
+Content-Type: application/json
+user-id: cys
+
+<> 2019-05-19T031632.200.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: cys
+Cookie: JSESSIONID=0664D41431AE4343967AB97BCA105D92
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+<> 2019-05-19T031628.200.json
+
+###
+
+POST http://localhost:8080/registered-books/new
+Content-Type: application/json
+user-id: cys
+
+{
+  "bookId": 1,
+  "count": 15
+}
+
+<> 2019-05-19T031619.200.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: cys
+Cookie: JSESSIONID=E3DA436493B827362A30C2E84858E5AF
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+<> 2019-05-19T031614.200.json
+
+###
+
+POST http://localhost:8080/registered-books/new
+Content-Type: application/json
+user-id: cys
+
+{
+  "bookId": 1,
+  "count": 15
+}
+
+<> 2019-05-19T031608.200.json
+
+###
+
+GET http://localhost:8080/registered-books?pageNumber=3
+Content-Type: application/json
+user-id: cys
+
+<> 2019-05-19T031408.200.json
+
+###
+
+GET http://localhost:8080/registered-books?pageNumber=2
+Content-Type: application/json
+user-id: cys
+
+<> 2019-05-19T031355.200.json
+
+###
+
+GET http://localhost:8080/registered-books?pageNumber=1
+Content-Type: application/json
+user-id: cys
+
+<> 2019-05-19T031349.200.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: cys
+Cookie: JSESSIONID=E3DA436493B827362A30C2E84858E5AF
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+<> 2019-05-19T031341.200.json
+
+###
+
+POST http://localhost:8080/registered-books/new
+Content-Type: application/json
+user-id: cys
+
+{
+  "bookId": 1,
+  "count": 15
+}
+
+<> 2019-05-19T031314.200.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: qqq
+Cookie: JSESSIONID=A607292ED33F2883758D42056D4E8971
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+<> 2019-05-19T020605.200.json
+
+###
+
+POST http://localhost:8080/registered-books/new
+Content-Type: application/json
+user-id: cys
+
+{
+  "bookId": 1,
+  "count": 15
+}
+
+<> 2019-05-19T020556.200.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: qqq
+Cookie: JSESSIONID=5AD80EAF7E33EDA92D1E9A6F6017BC39
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+<> 2019-05-19T020550.200.json
+
+###
+
+POST http://localhost:8080/registered-books/new
+Content-Type: application/json
+user-id: cys
+
+{
+  "bookId": 1,
+  "count": 15
+}
+
+<> 2019-05-19T020547.200.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: qqq
+Cookie: JSESSIONID=5AD80EAF7E33EDA92D1E9A6F6017BC39
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+<> 2019-05-19T020348.500.json
+
+###
+
+POST http://localhost:8080/registered-books/new
+Content-Type: application/json
+user-id: cys
+
+{
+  "bookId": 1,
+  "count": 15
+}
+
+<> 2019-05-19T020340.200.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: qqq
+Cookie: JSESSIONID=C2CF673C816E33003EFCC97B3B4EBA44
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+<> 2019-05-19T020335.200.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: qqq
+Cookie: JSESSIONID=C2CF673C816E33003EFCC97B3B4EBA44
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+<> 2019-05-19T020332.200.json
+
+###
+
+POST http://localhost:8080/registered-books/new
+Content-Type: application/json
+user-id: cys
+
+{
+  "bookId": 1,
+  "count": 15
+}
+
+<> 2019-05-19T020322.200.json
+
+###
+
+POST http://localhost:8080/registered-books/new
+Content-Type: application/json
+user-id: cys
+
+{
+  "bookId": 1,
+  "count": 15
+}
+
+<> 2019-05-19T020317.200.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: qqq
+Cookie: JSESSIONID=C2CF673C816E33003EFCC97B3B4EBA44
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+<> 2019-05-19T020304.500.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: qqq
+Cookie: JSESSIONID=C2CF673C816E33003EFCC97B3B4EBA44
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+<> 2019-05-19T020232.500.json
+
+###
+
+POST http://localhost:8080/registered-books/new
+Content-Type: application/json
+user-id: cys
+
+{
+  "bookId": 1,
+  "count": 15
+}
+
+<> 2019-05-19T020220.200.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: qqq
+Cookie: JSESSIONID=01ACA440866884FEBB731A47D7C543ED
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+<> 2019-05-19T020214.200.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: cys
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-06",
+  "periodPercent": 20.0
+}
+
+<> 2019-05-19T020208.200.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: qqq
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+<> 2019-05-19T020132.200.json
+
+###
+
+POST http://localhost:8080/registered-books/new
+Content-Type: application/json
+user-id: cys
+
+{
+  "bookId": 1,
+  "count": 15
+}
+
+<> 2019-05-19T020123.200.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: qqq
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+<> 2019-05-19T015935.200.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: cys
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-07",
+  "periodPercent": -1
+}
+
+<> 2019-05-19T015929.200.json
+
+###
+
+POST http://localhost:8080/registered-books/new
+Content-Type: application/json
+user-id: cys
+
+{
+  "bookId": 1,
+  "count": 15
+}
+
+<> 2019-05-19T015921.200.json
+
+###
+
+POST http://localhost:8080/registered-books/new
+Content-Type: application/json
+user-id: cys
+
+{
+  "bookId": 1,
+  "count": 15
+}
+
+<> 2019-05-19T015859.200.json
+
+###
+
+GET http://localhost:8080/registered-books?pageNumber=1
+Content-Type: application/json
+user-id: cys
+
+<> 2019-05-19T015123.200.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: cys
+Cookie: JSESSIONID=01ACA440866884FEBB731A47D7C543ED
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+<> 2019-05-19T015110.200.json
+
+###
+
+POST http://localhost:8080/registered-books/new
+Content-Type: application/json
+user-id: cys
+
+{
+  "bookId": 1,
+  "count": 15
+}
+
+<> 2019-05-19T015055.200.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: cys
+Set-Cookie: JSESSIONID=59A946520389D3AF77700A8C13BC0E47
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+<> 2019-05-19T015001.200.json
+
+###
+
+POST http://localhost:8080/registered-books/new
+Content-Type: application/json
+user-id: cys
+
+{
+  "bookId": 1,
+  "count": 15
+}
+
+<> 2019-05-19T014916.200.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: cys
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+<> 2019-05-19T014352.200.json
+
+###
+
+POST http://localhost:8080/registered-books/new
+Content-Type: application/json
+user-id: cys
+
+{
+  "bookId": 1,
+  "count": 15
+}
+
+<> 2019-05-19T014347.200.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: cys
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+<> 2019-05-19T014327.200.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: cys
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+<> 2019-05-19T014234.200.json
+
+###
+
+POST http://localhost:8080/registered-books/new
+Content-Type: application/json
+user-id: cys
+
+{
+  "bookId": 1,
+  "count": 15
+}
+
+<> 2019-05-19T014221.200.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: cys
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+<> 2019-05-19T014200.200.json
+
+###
+
+POST http://localhost:8080/registered-books/new
+Content-Type: application/json
+user-id: cys
+
+{
+  "bookId": 1,
+  "count": 15
+}
+
+<> 2019-05-19T014146.200.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: cys
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+<> 2019-05-19T013946.200.json
+
+###
+
+POST http://localhost:8080/registered-books/new
+Content-Type: application/json
+user-id: cys
+
+{
+  "bookId": 1,
+  "count": 15
+}
+
+<> 2019-05-19T013930.200.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: cys
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+<> 2019-05-19T013859.200.json
+
+###
+
+POST http://localhost:8080/registered-books/new
+Content-Type: application/json
+user-id: cys
+
+{
+  "bookId": 1,
+  "count": 15
+}
+
+<> 2019-05-19T013833.200.json
+
+###
+
+GET http://localhost:8080/registered-books?pageNumber=1
+Content-Type: application/json
+user-id: cys
+
+<> 2019-05-19T013800.200.json
+
+###
+
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: cys
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+<> 2019-05-19T013730.200.json
+
+###
+

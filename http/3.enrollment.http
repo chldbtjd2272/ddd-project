@@ -62,7 +62,7 @@ user-id: cys
 POST http://localhost:8080/enrollment
 Content-Type: application/json
 user-id: cys
-Cookie: JSESSIONID=01ACA440866884FEBB731A47D7C543ED
+Cookie: JSESSIONID=0664D41431AE4343967AB97BCA105D92
 
 {
   "startDate": "2019-05-07",
@@ -123,6 +123,11 @@ user-id: cys
 
 ### 등록된 책 페이징 처리하여 조회
 GET http://localhost:8080/registered-books?pageNumber=2
+Content-Type: application/json
+user-id: cys
+
+###
+GET http://localhost:8080/registered-books?pageNumber=3
 Content-Type: application/json
 user-id: cys
 

@@ -57,7 +57,7 @@ public class RegisteredBook {
         reserved = false;
     }
 
-    private boolean isReserved() {
+    public boolean isReserved() {
         return reserved;
     }
 
