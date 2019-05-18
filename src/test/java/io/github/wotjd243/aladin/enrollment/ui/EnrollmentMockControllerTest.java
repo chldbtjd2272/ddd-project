@@ -47,7 +47,7 @@ public class EnrollmentMockControllerTest {
         ApiResponse apiResponse = getApiResponse(mvcResult);
 
         assertThat(apiResponse.getCode()).isEqualTo(ApiResponseCode.BAD_PARAMETER);
-        assertThat(apiResponse.getMessage()).isEqualTo("잘못된 기간설정 입니다.");
+        assertThat(apiResponse.getMessage()).isEqualTo("요청 파라미터가 잘못되었습니다.");
     }
 
     @Test

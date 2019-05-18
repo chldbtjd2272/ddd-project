@@ -1,12 +1,10 @@
 package io.github.wotjd243.aladin.enrollment.ui.dto;
 
-import io.github.wotjd243.aladin.enrollment.application.dto.EventDto;
-import io.github.wotjd243.aladin.exception.WrongValueException;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.util.ObjectUtils;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 
@@ -14,33 +12,14 @@ import java.time.LocalDate;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class EventRequestDto {
 
+    @NotNull
     private LocalDate startDate;
 
+    @NotNull
     private LocalDate endDate;
 
+    @NotNull
     private Double periodPercent;
-
-    public EventDto toEventDto() {
-        validateDate();
-        validatePercent();
-        return new EventDto(startDate, endDate, periodPercent);
-    }
-
-    private void validateDate() {
-        if (ObjectUtils.isEmpty(startDate) || ObjectUtils.isEmpty(endDate)) {
-            throw new WrongValueException("잘못된 기간설정 입니다.");
-        }
-
-        if (endDate.isBefore(startDate)) {
-            throw new WrongValueException("잘못된 기간설정 입니다.");
-        }
-    }
-
-    private void validatePercent() {
-        if (ObjectUtils.isEmpty(startDate) || periodPercent < 0) {
-            throw new WrongValueException("잘못된 할인율입니다.");
-        }
-    }
 }
 
 

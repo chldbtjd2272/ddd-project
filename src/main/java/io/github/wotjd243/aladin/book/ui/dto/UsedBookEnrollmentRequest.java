@@ -1,20 +1,22 @@
 package io.github.wotjd243.aladin.book.ui.dto;
 
-import io.github.wotjd243.aladin.book.application.RegisteredBookRequestDto;
-import io.github.wotjd243.aladin.enrollment.domain.SellType;
-import io.github.wotjd243.aladin.exception.WrongValueException;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.util.ObjectUtils;
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class UsedBookEnrollmentRequest {
 
+    @NotNull
     private Long bookId;
 
+    @Min(1000)
+    @NotNull
     private Long amount;
 
     @Builder(builderMethodName = "createBuilder")
@@ -23,19 +25,6 @@ public class UsedBookEnrollmentRequest {
         this.amount = amount;
     }
 
-    public RegisteredBookRequestDto toDto() {
-        validateAmount();
-        return RegisteredBookRequestDto.builder()
-                .bookId(bookId)
-                .amount(amount)
-                .sellType(SellType.USED)
-                .build();
-    }
 
-    private void validateAmount() {
-        if (ObjectUtils.isEmpty(amount) || amount <= 1000) {
-            throw new WrongValueException("잘못된 가격입니다.");
-        }
-    }
 }
 

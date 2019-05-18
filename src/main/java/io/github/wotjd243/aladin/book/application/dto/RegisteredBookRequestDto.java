@@ -1,7 +1,7 @@
-package io.github.wotjd243.aladin.book.application;
+package io.github.wotjd243.aladin.book.application.dto;
 
-import io.github.wotjd243.aladin.enrollment.domain.SellType;
 import io.github.wotjd243.aladin.common.domain.UnitAmount;
+import io.github.wotjd243.aladin.enrollment.domain.SellType;
 import lombok.*;
 
 @Getter
