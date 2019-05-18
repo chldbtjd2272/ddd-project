@@ -1,17 +1,18 @@
 package io.github.wotjd243.aladin.book.infra;
 
 import io.github.wotjd243.aladin.book.domain.Book;
+import io.github.wotjd243.aladin.book.domain.Category;
 import io.github.wotjd243.aladin.book.infra.dto.BookApiResponseDto;
 import io.github.wotjd243.aladin.book.ui.dto.BookResponseDto;
 
 public class BookTranslator {
 
-    public static Book translate(BookApiResponseDto.Item item) {
+    public static Book translate(BookApiResponseDto.Item item, String category) {
 
         return Book.createBuilder()
                 .name(item.getTitle())
                 .author(item.getAuthor())
-                .category("IT")
+                .category(category)
                 .publisher(item.getPublisher())
                 .price(item.getPrice())
                 .build();

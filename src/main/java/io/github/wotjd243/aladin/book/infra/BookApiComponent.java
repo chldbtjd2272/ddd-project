@@ -26,23 +26,23 @@ public class BookApiComponent {
     @Value("${api.client.secret}")
     String clientSecret;
 
-    public void save() {
-        ResponseEntity<BookApiResponseDto> response = execute();
+    public void save(String category) {
+        ResponseEntity<BookApiResponseDto> response = execute(category);
 
         response.getBody().getItems()
-                .forEach(this::saveItem);
+                .forEach(item -> saveItem(item, category));
     }
 
-    private void saveItem(BookApiResponseDto.Item item) {
+    private void saveItem(BookApiResponseDto.Item item, String category) {
 
-        repository.save(BookTranslator.translate(item));
+        repository.save(BookTranslator.translate(item, category));
         log.info("item : {}", item.toString());
     }
 
-    public ResponseEntity<BookApiResponseDto> execute() {
+    public ResponseEntity<BookApiResponseDto> execute(String category) {
 
         HttpEntity request = new HttpEntity<>(setHeader());
-        String apiUrl = generateURL();
+        String apiUrl = generateURL(category);
         ResponseEntity<BookApiResponseDto> response = restTemplate.exchange(apiUrl, HttpMethod.GET, request, BookApiResponseDto.class);
 
         log.info("response : {} ", response);
@@ -50,12 +50,11 @@ public class BookApiComponent {
     }
 
 
-    private String generateURL() {
+    private String generateURL(String category) {
 
         return host +
-                "/v1/search/book.json" +
-                "?query=" +
-                "java";
+                "/v1/search/book.json?query="
+                + category;
     }
 
 

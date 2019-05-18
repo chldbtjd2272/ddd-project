@@ -22,7 +22,7 @@ public class BookApiComponentTest {
 
     @Test
     public void bookApiTest() throws Exception {
-        ResponseEntity<BookApiResponseDto> response = component.execute();
+        ResponseEntity<BookApiResponseDto> response = component.execute("java");
 
         assertThat(Objects.requireNonNull(response.getBody()).getItems().size()).isEqualTo(10);
 
