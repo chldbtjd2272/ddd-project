@@ -1,7 +1,7 @@
 package io.github.wotjd243.aladin.reservation.application;
 
-import io.github.wotjd243.aladin.enrollment.application.RegisteredBookService;
-import io.github.wotjd243.aladin.enrollment.domain.RegisteredBook;
+import io.github.wotjd243.aladin.book.application.RegisteredBookService;
+import io.github.wotjd243.aladin.book.domain.RegisteredBook;
 import io.github.wotjd243.aladin.reservation.domain.Reservation;
 import io.github.wotjd243.aladin.reservation.domain.ShoppingBasket;
 import lombok.RequiredArgsConstructor;

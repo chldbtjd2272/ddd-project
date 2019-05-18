@@ -1,7 +1,8 @@
 package io.github.wotjd243.aladin.enrollment.ui;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.wotjd243.aladin.enrollment.application.RegisteredBookService;
+import io.github.wotjd243.aladin.book.application.RegisteredBookService;
+import io.github.wotjd243.aladin.book.ui.RegisteredBookController;
 import io.github.wotjd243.aladin.exception.NotFoundException;
 import io.github.wotjd243.aladin.response.ApiResponse;
 import io.github.wotjd243.aladin.response.ApiResponseCode;

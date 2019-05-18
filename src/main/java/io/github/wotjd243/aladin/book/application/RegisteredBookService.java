@@ -1,10 +1,9 @@
-package io.github.wotjd243.aladin.enrollment.application;
+package io.github.wotjd243.aladin.book.application;
 
 import io.github.wotjd243.aladin.book.domain.Book;
 import io.github.wotjd243.aladin.book.domain.BookRepository;
-import io.github.wotjd243.aladin.enrollment.application.dto.RegisteredBookDto;
-import io.github.wotjd243.aladin.enrollment.domain.RegisteredBook;
-import io.github.wotjd243.aladin.enrollment.domain.RegisteredBookRepository;
+import io.github.wotjd243.aladin.book.domain.RegisteredBook;
+import io.github.wotjd243.aladin.book.domain.RegisteredBookRepository;
 import io.github.wotjd243.aladin.enrollment.domain.SellType;
 import io.github.wotjd243.aladin.exception.NotFoundException;
 import io.github.wotjd243.aladin.exception.WrongValueException;
@@ -28,17 +27,17 @@ public class RegisteredBookService {
                 .orElseThrow(() -> new NotFoundException(String.format("[%s] 책이 존재하지 않습니다.", registeredBookId)));
     }
 
-    public void save(HttpSession session, RegisteredBookDto registeredBookDto) {
-        Book book = findBy(registeredBookDto);
+    public void save(HttpSession session, RegisteredBookRequestDto registeredBookRequestDto) {
+        Book book = findBy(registeredBookRequestDto);
 
-        if (registeredBookDto.getSellType() == SellType.NEW) {
-            registeredBookDto.setAmount(book.getPrice());
-            sessionManager.addNewRegisteredBook(session, registeredBookDto);
+        if (registeredBookRequestDto.getSellType() == SellType.NEW) {
+            registeredBookRequestDto.setAmount(book.getPrice());
+            sessionManager.addNewRegisteredBook(session, registeredBookRequestDto);
             return;
         }
 
-        validateAmount(book.getPrice(), registeredBookDto.getAmount());
-        sessionManager.addUsedRegisteredBook(session, registeredBookDto);
+        validateAmount(book.getPrice(), registeredBookRequestDto.getAmount());
+        sessionManager.addUsedRegisteredBook(session, registeredBookRequestDto);
     }
 
     private void validateAmount(Long price, Long amountOfUsedBook) {
@@ -47,7 +46,7 @@ public class RegisteredBookService {
         }
     }
 
-    private Book findBy(RegisteredBookDto dto) {
+    private Book findBy(RegisteredBookRequestDto dto) {
         return bookRepository.findById(dto.getBookId()).orElseThrow(() -> new NotFoundException("책을 찾을 수 없습니다."));
     }
 }

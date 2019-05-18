@@ -1,9 +1,10 @@
-package io.github.wotjd243.aladin.enrollment.ui.dto;
+package io.github.wotjd243.aladin.book.ui.dto;
 
-import io.github.wotjd243.aladin.enrollment.application.dto.RegisteredBookDto;
+import io.github.wotjd243.aladin.book.application.RegisteredBookRequestDto;
 import io.github.wotjd243.aladin.enrollment.domain.SellType;
 import io.github.wotjd243.aladin.exception.WrongValueException;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.util.ObjectUtils;
@@ -16,9 +17,15 @@ public class NewBookEnrollmentRequest {
 
     private Long count;
 
-    public RegisteredBookDto toDto() {
+    @Builder(builderMethodName = "createBuilder")
+    private NewBookEnrollmentRequest(Long bookId, Long count) {
+        this.bookId = bookId;
+        this.count = count;
+    }
+
+    public RegisteredBookRequestDto toDto() {
         validateCount();
-        return RegisteredBookDto.builder()
+        return RegisteredBookRequestDto.builder()
                 .bookId(bookId)
                 .count(count)
                 .sellType(SellType.NEW)

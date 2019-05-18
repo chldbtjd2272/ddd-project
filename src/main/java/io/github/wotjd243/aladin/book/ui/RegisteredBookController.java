@@ -1,8 +1,8 @@
-package io.github.wotjd243.aladin.enrollment.ui;
+package io.github.wotjd243.aladin.book.ui;
 
-import io.github.wotjd243.aladin.enrollment.application.RegisteredBookService;
-import io.github.wotjd243.aladin.enrollment.ui.dto.NewBookEnrollmentRequest;
-import io.github.wotjd243.aladin.enrollment.ui.dto.UsedBookEnrollmentRequest;
+import io.github.wotjd243.aladin.book.application.RegisteredBookService;
+import io.github.wotjd243.aladin.book.ui.dto.NewBookEnrollmentRequest;
+import io.github.wotjd243.aladin.book.ui.dto.UsedBookEnrollmentRequest;
 import io.github.wotjd243.aladin.response.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

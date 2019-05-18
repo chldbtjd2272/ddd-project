@@ -1,9 +1,9 @@
 package io.github.wotjd243.aladin.reservation.ui;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.github.wotjd243.aladin.book.domain.RegisteredBook;
+import io.github.wotjd243.aladin.book.domain.RegisteredBookRepository;
 import io.github.wotjd243.aladin.common.domain.UnitAmount;
-import io.github.wotjd243.aladin.enrollment.domain.RegisteredBook;
-import io.github.wotjd243.aladin.enrollment.domain.RegisteredBookRepository;
 import io.github.wotjd243.aladin.person.domain.Buyer;
 import io.github.wotjd243.aladin.person.domain.BuyerRepository;
 import io.github.wotjd243.aladin.response.ApiResponse;

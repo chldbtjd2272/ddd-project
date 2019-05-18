@@ -1,14 +1,14 @@
-package io.github.wotjd243.aladin.enrollment.application.dto;
+package io.github.wotjd243.aladin.book.application;
 
+import io.github.wotjd243.aladin.book.domain.RegisteredBook;
 import io.github.wotjd243.aladin.common.domain.UnitAmount;
-import io.github.wotjd243.aladin.enrollment.domain.RegisteredBook;
 import io.github.wotjd243.aladin.enrollment.domain.SellType;
 import lombok.*;
 
 @ToString
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class SessionRegisteredBook {
+public class RegisteredBookDto {
 
     private Long bookId;
 
@@ -17,7 +17,7 @@ public class SessionRegisteredBook {
     private SellType sellType;
 
     @Builder
-    public SessionRegisteredBook(Long bookId, UnitAmount amount, SellType sellType) {
+    public RegisteredBookDto(Long bookId, UnitAmount amount, SellType sellType) {
         this.bookId = bookId;
         this.amount = amount;
         this.sellType = sellType;

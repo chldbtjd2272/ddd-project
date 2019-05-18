@@ -1,7 +1,8 @@
 package io.github.wotjd243.aladin.enrollment.application.dto;
 
+import io.github.wotjd243.aladin.book.application.RegisteredBookDto;
+import io.github.wotjd243.aladin.book.domain.RegisteredBook;
 import io.github.wotjd243.aladin.enrollment.domain.Enrollment;
-import io.github.wotjd243.aladin.enrollment.domain.RegisteredBook;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
@@ -14,15 +15,15 @@ import java.util.stream.Collectors;
 public class EnrollmentDto {
 
     private EventDto eventDto;
-    private List<SessionRegisteredBook> registeredBooks;
+    private List<RegisteredBookDto> registeredBooks;
 
     @Builder
-    public EnrollmentDto(EventDto eventDto, List<SessionRegisteredBook> registeredBooks) {
+    public EnrollmentDto(EventDto eventDto, List<RegisteredBookDto> registeredBooks) {
         this.eventDto = eventDto;
         this.registeredBooks = registeredBooks;
     }
 
-    public static EnrollmentDto of(List<SessionRegisteredBook> books, EventDto eventDto) {
+    public static EnrollmentDto of(List<RegisteredBookDto> books, EventDto eventDto) {
         return EnrollmentDto.builder()
                 .registeredBooks(books)
                 .eventDto(eventDto)
@@ -30,7 +31,7 @@ public class EnrollmentDto {
     }
 
     public Enrollment toEntity(Long sellerId) {
-        List<RegisteredBook> books = registeredBooks.stream().map(SessionRegisteredBook::toEntity).collect(Collectors.toList());
+        List<RegisteredBook> books = registeredBooks.stream().map(RegisteredBookDto::toEntity).collect(Collectors.toList());
         return new Enrollment(sellerId, books, Collections.singletonList(eventDto.toEntity()));
 
     }
