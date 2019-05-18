@@ -10,11 +10,13 @@ import io.github.wotjd243.aladin.enrollment.domain.SellType;
 import io.github.wotjd243.aladin.exception.NotFoundException;
 import io.github.wotjd243.aladin.exception.WrongValueException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.stream.Collectors;
+
 
 @Service
 @RequiredArgsConstructor
@@ -71,4 +73,7 @@ public class RegisteredBookService {
                 .build();
     }
 
+    public List<RegisteredBook> findBy(Pageable convert) {
+        return registeredBookRepository.findAll(convert).getContent();
+    }
 }

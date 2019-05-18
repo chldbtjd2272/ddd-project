@@ -8,6 +8,8 @@ import lombok.*;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class RegisteredBookRequestDto {
 
+    private String sellerId;
+
     private Long bookId;
 
     private Long count;
@@ -18,7 +20,8 @@ public class RegisteredBookRequestDto {
     private SellType sellType;
 
     @Builder
-    public RegisteredBookRequestDto(Long bookId, Long count, Long amount, SellType sellType) {
+    public RegisteredBookRequestDto(String sellerId, Long bookId, Long count, Long amount, SellType sellType) {
+        this.sellerId = sellerId;
         this.bookId = bookId;
         this.count = count;
         this.amount = amount;
@@ -30,6 +33,7 @@ public class RegisteredBookRequestDto {
                 .bookId(bookId)
                 .amount(new UnitAmount(amount))
                 .sellType(sellType)
+                .sellerId(sellerId)
                 .build();
 
     }

@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class RegisteredBookDto {
 
+    private String sellerId;
+
     private Long bookId;
 
     private UnitAmount amount;
@@ -18,9 +20,10 @@ public class RegisteredBookDto {
     private SellType sellType;
 
     @Builder
-    public RegisteredBookDto(Long bookId, UnitAmount amount, SellType sellType) {
+    public RegisteredBookDto(String sellerId, Long bookId, UnitAmount amount, SellType sellType) {
         this.bookId = bookId;
         this.amount = amount;
         this.sellType = sellType;
+        this.sellerId = sellerId;
     }
 }
