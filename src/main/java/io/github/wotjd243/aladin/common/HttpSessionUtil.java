@@ -1,6 +1,6 @@
 package io.github.wotjd243.aladin.common;
 
-import io.github.wotjd243.aladin.book.application.RegisteredBookDto;
+import io.github.wotjd243.aladin.book.application.dto.RegisteredBookDto;
 import org.springframework.util.ObjectUtils;
 
 import javax.servlet.http.HttpSession;

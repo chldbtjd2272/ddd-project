@@ -1,20 +1,22 @@
 package io.github.wotjd243.aladin.book.ui.dto;
 
-import io.github.wotjd243.aladin.book.application.RegisteredBookRequestDto;
-import io.github.wotjd243.aladin.enrollment.domain.SellType;
-import io.github.wotjd243.aladin.exception.WrongValueException;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.util.ObjectUtils;
+
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class NewBookEnrollmentRequest {
 
+    @NotNull
     private Long bookId;
 
+    @Min(1)
+    @NotNull
     private Long count;
 
     @Builder(builderMethodName = "createBuilder")
@@ -23,18 +25,5 @@ public class NewBookEnrollmentRequest {
         this.count = count;
     }
 
-    public RegisteredBookRequestDto toDto() {
-        validateCount();
-        return RegisteredBookRequestDto.builder()
-                .bookId(bookId)
-                .count(count)
-                .sellType(SellType.NEW)
-                .build();
-    }
 
-    private void validateCount() {
-        if (ObjectUtils.isEmpty(count) || count <= 0) {
-            throw new WrongValueException("권수가 잘못되었습니다.");
-        }
-    }
 }

@@ -54,7 +54,7 @@ public class RegisteredBookMockControllerTest {
         ApiResponse apiResponse = getApiResponse(mvcResult);
 
         assertThat(apiResponse.getCode()).isEqualTo(ApiResponseCode.BAD_PARAMETER);
-        assertThat(apiResponse.getMessage()).isEqualTo("권수가 잘못되었습니다.");
+        assertThat(apiResponse.getMessage()).isEqualTo("요청 파라미터가 잘못되었습니다.");
     }
 
     @Test
@@ -121,12 +121,12 @@ public class RegisteredBookMockControllerTest {
         ApiResponse apiResponse = getApiResponse(mvcResult);
 
         assertThat(apiResponse.getCode()).isEqualTo(ApiResponseCode.BAD_PARAMETER);
-        assertThat(apiResponse.getMessage()).isEqualTo("잘못된 가격입니다.");
+        assertThat(apiResponse.getMessage()).isEqualTo("요청 파라미터가 잘못되었습니다.");
     }
 
     @Test
     public void 중고책_가격_1000원_이하_등록요청() throws Exception {
-        String requestBody = "{\"bookId\":10000,\"amount\":1000}";
+        String requestBody = "{\"bookId\":10000,\"amount\":999}";
         //given
         //when
         MvcResult mvcResult = this.mockMvc.perform(post("/registered-books/used")
@@ -141,7 +141,7 @@ public class RegisteredBookMockControllerTest {
         ApiResponse apiResponse = getApiResponse(mvcResult);
 
         assertThat(apiResponse.getCode()).isEqualTo(ApiResponseCode.BAD_PARAMETER);
-        assertThat(apiResponse.getMessage()).isEqualTo("잘못된 가격입니다.");
+        assertThat(apiResponse.getMessage()).isEqualTo("요청 파라미터가 잘못되었습니다.");
     }
 
     @Test

@@ -21,7 +21,7 @@ public class Enrollment {
 
     private String sellerId;
 
-    @OneToMany(mappedBy = "enrollment", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @OneToMany(mappedBy = "enrollment", fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     private List<Event> events = new ArrayList<>();
 
     public Enrollment(String sellerId, List<Event> events) {
