@@ -23,7 +23,7 @@ import java.nio.file.AccessDeniedException;
 public class GlobalExceptionHandler {
 
     @ResponseBody
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     protected ApiResponse<ErrorMessageCollection> handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
 
@@ -47,7 +47,7 @@ public class GlobalExceptionHandler {
     }
 
     @ResponseBody
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(HttpMessageNotReadableException.class)
     protected ApiResponse<String> handleHttpMessageNotReadableException(HttpMessageNotReadableException e) {
 
@@ -63,13 +63,13 @@ public class GlobalExceptionHandler {
     }
 
     @ResponseBody
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(BusinessException.class)
     protected ApiResponse<String> handleBusinessException(BusinessException e) {
 
         ApiResponse<String> exception = ApiResponse.createException(e.getErrorCode(), e.getMessage());
 
-        log.error("[{}] {}", ApiResponseCode.BAD_PARAMETER.getId(), exception);
+        log.error("[{}] {}", ApiResponseCode.BAD_PARAMETER.getId(), exception.getMessage());
         return exception;
     }
 
@@ -91,10 +91,4 @@ public class GlobalExceptionHandler {
     protected String handleAccessDeniedException(AccessDeniedException e) {
         return "NO";
     }
-//
-//    @ExceptionHandler(Exception.class)
-//    protected ResponseEntity<ErrorResponse> handleException(Exception e) {
-//        final ErrorResponse response = ErrorResponse.of(ErrorCode.INTERNAL_SERVER_ERROR);
-//        return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
-//    }
 }

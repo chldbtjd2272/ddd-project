@@ -1,11 +1,10 @@
 package io.github.wotjd243.aladin.enrollment.domain;
 
+import io.github.wotjd243.aladin.common.domain.UnitAmount;
 import io.github.wotjd243.aladin.exception.AlreadyReservationException;
-import io.github.wotjd243.aladin.exception.NotFoundException;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Getter
 @Entity

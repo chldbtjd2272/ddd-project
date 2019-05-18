@@ -17,14 +17,10 @@ public class Reservation {
     private LocalDate reservationDate;
 
     private Long amount;
-    private Long usedDiscountAmount;
-    private Double eventDiscountPercent;
 
-    public Reservation(Long registeredBookId, LocalDate reservationDate, Long amount, Long usedDiscountAmount, Double eventDiscountPercent) {
+    public Reservation(Long registeredBookId, LocalDate reservationDate, Long amount) {
         this.registeredBookId = registeredBookId;
         this.reservationDate = reservationDate;
         this.amount = amount;
-        this.usedDiscountAmount = usedDiscountAmount;
-        this.eventDiscountPercent = eventDiscountPercent;
     }
 }

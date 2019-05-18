@@ -13,6 +13,7 @@ public class Application {
 
     public static void main(String[] args) {
         final ApplicationContext context = SpringApplication.run(Application.class, args);
+
         final BookApiComponent component = context.getBean(BookApiComponent.class);
         component.save("Java");
         component.save("소설");

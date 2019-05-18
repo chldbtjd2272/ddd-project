@@ -44,7 +44,7 @@ public class RegisteredBookMockControllerTest {
                 .content(requestBody)
         )
                 .andDo(print())
-                .andExpect(status().isBadRequest())
+                .andExpect(status().isOk())
                 .andReturn();
 
         //then
@@ -69,7 +69,7 @@ public class RegisteredBookMockControllerTest {
                 .content(requestBody)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
         )
-                .andExpect(status().isBadRequest())
+                .andExpect(status().isOk())
                 .andDo(print())
                 .andReturn();
 
@@ -111,7 +111,7 @@ public class RegisteredBookMockControllerTest {
                 .content(requestBody)
         )
                 .andDo(print())
-                .andExpect(status().isBadRequest())
+                .andExpect(status().isOk())
                 .andReturn();
 
         //then
@@ -131,7 +131,7 @@ public class RegisteredBookMockControllerTest {
                 .content(requestBody)
         )
                 .andDo(print())
-                .andExpect(status().isBadRequest())
+                .andExpect(status().isOk())
                 .andReturn();
 
         //then

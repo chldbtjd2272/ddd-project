@@ -52,8 +52,8 @@ public class ReservationService {
     }
 
     private Reservation convert(RegisteredBook registeredBook) {
-        return null;
-//        return new Reservation(registeredBook.getBookId(), getDate(), null, null, null);
+
+        return new Reservation(registeredBook.getBookId(), getDate(), registeredBook.getAmount().getAmount());
     }
 
     LocalDate getDate() {

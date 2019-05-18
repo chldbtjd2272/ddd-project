@@ -1,4 +1,4 @@
-package io.github.wotjd243.aladin.enrollment.domain;
+package io.github.wotjd243.aladin.common.domain;
 
 import io.github.wotjd243.aladin.exception.NotFoundException;
 import io.github.wotjd243.aladin.exception.WrongValueException;
@@ -11,7 +11,7 @@ import javax.persistence.Embeddable;
 
 @Getter
 @Embeddable
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class UnitAmount {
 
     private long amount;
