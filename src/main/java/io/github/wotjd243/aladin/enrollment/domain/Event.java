@@ -33,4 +33,8 @@ public class Event {
         this.endDate = endDate;
         this.periodPercent = periodPercent;
     }
+
+    public boolean isEventDate(LocalDate searchDate) {
+        return startDate.minusDays(1).isAfter(searchDate) && endDate.plusDays(1).isBefore(searchDate);
+    }
 }

@@ -17,6 +17,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 
+import javax.servlet.http.HttpSession;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.willThrow;
@@ -63,7 +65,7 @@ public class RegisteredBookMockControllerTest {
 
         willThrow(new NotFoundException("책이 없습니다."))
                 .given(registeredBookService)
-                .save(any(), any());
+                .save((HttpSession) any(), any());
 
         //when
         MvcResult mvcResult = this.mockMvc.perform(post("/registered-books/new")

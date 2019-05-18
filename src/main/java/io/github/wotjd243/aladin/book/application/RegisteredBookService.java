@@ -11,6 +11,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -49,4 +51,22 @@ public class RegisteredBookService {
     private Book findBy(RegisteredBookRequestDto dto) {
         return bookRepository.findById(dto.getBookId()).orElseThrow(() -> new NotFoundException("책을 찾을 수 없습니다."));
     }
+
+    public void save(Long enrollmentId, List<RegisteredBookDto> registeredBookDtos) {
+        List<RegisteredBook> registeredBooks = registeredBookDtos.stream()
+                .map(dto -> convert(enrollmentId, dto))
+                .collect(Collectors.toList());
+
+        registeredBookRepository.saveAll(registeredBooks);
+    }
+
+    private RegisteredBook convert(Long enrollmentId, RegisteredBookDto dto) {
+        return RegisteredBook.builder()
+                .bookId(dto.getBookId())
+                .unitAmount(dto.getAmount())
+                .sellType(dto.getSellType())
+                .enrollmentId(enrollmentId)
+                .build();
+    }
+
 }
