@@ -1,7 +1,7 @@
 package io.github.wotjd243.aladin.enrollment.application;
 
-import io.github.wotjd243.aladin.book.application.RegisteredBookDto;
 import io.github.wotjd243.aladin.book.application.RegisteredBookService;
+import io.github.wotjd243.aladin.book.application.dto.RegisteredBookDto;
 import io.github.wotjd243.aladin.enrollment.application.dto.EnrollmentDto;
 import io.github.wotjd243.aladin.enrollment.application.dto.EventDto;
 import io.github.wotjd243.aladin.enrollment.domain.Enrollment;
@@ -42,4 +42,5 @@ public class EnrollmentService {
     private Event convert(EventDto dto) {
         return new Event(dto.getStartDate(), dto.getEndDate(), dto.getPeriodPercent());
     }
+
 }

@@ -1,5 +1,7 @@
 package io.github.wotjd243.aladin.book.application;
 
+import io.github.wotjd243.aladin.book.application.dto.RegisteredBookDto;
+import io.github.wotjd243.aladin.book.application.dto.RegisteredBookRequestDto;
 import io.github.wotjd243.aladin.book.domain.Book;
 import io.github.wotjd243.aladin.book.domain.BookRepository;
 import io.github.wotjd243.aladin.book.domain.RegisteredBook;
