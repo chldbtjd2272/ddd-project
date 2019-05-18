@@ -55,7 +55,7 @@ public class BookApiResponseDto {
                     '}';
         }
 
-        private String getOriginTitle() {
+        public String getOriginTitle() {
             return this.title.replace("<b>", "").replace("</b>", "");
         }
     }

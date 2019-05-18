@@ -39,36 +39,6 @@ public class BookRepositoryTest {
 
     }
 
-    @Test
-    public void Book_카테고리로_조회() {
-
-        // given
-        createBook();
-
-        // when
-        List<Book> bookList = repository.findBooksByCategory(new Category("IT"));
-
-        // then
-        assertThat(bookList.size()).isEqualTo(1);
-        assertThat(bookList.get(0).getName()).isEqualTo("이펙티브 자바 (Effective Java)");
-
-    }
-
-    @Test
-    public void Book_제목으로_조회() {
-
-        // given
-        createBook();
-
-        // when
-        List<Book> bookList = repository.findBooksByNameNameContaining("자바");
-
-        // then
-        assertThat(bookList.size()).isEqualTo(1);
-        assertThat(bookList.get(0).getName()).isEqualTo("이펙티브 자바 (Effective Java)");
-
-    }
-
     private void createBook() {
         repository.save(Book.createBuilder()
                 .name("이펙티브 자바 (Effective Java)")
