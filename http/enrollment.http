@@ -1,0 +1,32 @@
+### 세션에 등록된 책들 저장
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+
+### 이벤트 기간 잘못 선정
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-06",
+  "periodPercent": 20.0
+}
+
+### 잘못된 할인율 파라미터
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-07",
+  "periodPercent": -1
+}
+
+###

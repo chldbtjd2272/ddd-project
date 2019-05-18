@@ -1,0 +1,49 @@
+
+### 새책 세션 저장
+POST http://localhost:8080/registered-books/new
+Content-Type: application/json
+
+{
+  "bookId": 1,
+  "count": 10
+}
+
+### 중고책 세션 저장
+POST http://localhost:8080/registered-books/used
+Content-Type: application/json
+
+{
+  "bookId": 1,
+  "amount": 1000
+}
+
+
+### 새책 세션 저장(잘못된 파라미터)
+POST http://localhost:8080/registered-books/new
+Content-Type: application/json
+
+{
+  "bookId": 1,
+  "count": 0
+}
+
+### 중고책 세션 저장(잘못된 파라미터)
+POST http://localhost:8080/registered-books/used
+Content-Type: application/json
+
+{
+  "bookId": 1,
+  "amount": 999
+}
+
+### 중고책 세션 저장(없는 책 등록)
+POST http://localhost:8080/registered-books/used
+Content-Type: application/json
+
+{
+  "bookId": 100,
+  "amount": 1000
+}
+
+###
+

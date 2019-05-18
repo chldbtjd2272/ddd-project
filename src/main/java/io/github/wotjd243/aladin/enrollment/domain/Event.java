@@ -35,6 +35,6 @@ public class Event {
     }
 
     public boolean isEventDate(LocalDate searchDate) {
-        return startDate.minusDays(1).isAfter(searchDate) && endDate.plusDays(1).isBefore(searchDate);
+        return endDate.plusDays(1).isAfter(searchDate) && startDate.minusDays(1).isBefore(searchDate);
     }
 }
