@@ -22,8 +22,8 @@ public class EnrollmentController {
 
     @PostMapping
     public ApiResponse save(HttpSession session, @RequestBody EventRequestDto requestDto) {
-        Long sellerId = 1L;
-        enrollmentService.save(sellerId, EnrollmentDto.of(HttpSessionUtil.getSessionRegisteredBook(session), requestDto.toEventDto()));
+        String sellerId = "1L";
+        enrollmentService.save(EnrollmentDto.of(sellerId, requestDto.toEventDto()), HttpSessionUtil.getSessionRegisteredBook(session));
         return ApiResponse.createOK();
     }
 }

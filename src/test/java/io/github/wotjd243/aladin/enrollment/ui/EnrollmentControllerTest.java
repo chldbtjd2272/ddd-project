@@ -58,8 +58,10 @@ public class EnrollmentControllerTest {
 
         assertThat(apiResponse.getCode()).isEqualTo(ApiResponseCode.OK);
         assertThat(apiResponse.getMessage()).isEqualTo("요청이 성공하였습니다.");
-        assertThat(findBy(1L).getSellerId()).isEqualTo(1L);
-        assertThat(findBy(1L).getId()).isEqualTo(1L);
+        Enrollment enrollment = findEnrollment();
+
+        assertThat(enrollment.getSellerId()).isEqualTo("1L");
+        assertThat(enrollment.getId()).isEqualTo(1L);
     }
 
     ApiResponse getApiResponse(MvcResult mvcResult) throws java.io.IOException {
@@ -70,8 +72,8 @@ public class EnrollmentControllerTest {
         return mapper.readValue(mockHttpServletResponse.getContentAsString(), ApiResponse.class);
     }
 
-    Enrollment findBy(Long id) {
-        return enrollmentRepository.findById(id).orElseThrow(RuntimeException::new);
+    Enrollment findEnrollment() {
+        return enrollmentRepository.findById(1L).orElseThrow(RuntimeException::new);
     }
 
 }

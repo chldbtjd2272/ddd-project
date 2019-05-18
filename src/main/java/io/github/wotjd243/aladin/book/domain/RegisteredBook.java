@@ -1,10 +1,12 @@
 package io.github.wotjd243.aladin.book.domain;
 
 import io.github.wotjd243.aladin.common.domain.UnitAmount;
-import io.github.wotjd243.aladin.enrollment.domain.Enrollment;
 import io.github.wotjd243.aladin.enrollment.domain.SellType;
 import io.github.wotjd243.aladin.exception.AlreadyReservationException;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
@@ -27,16 +29,14 @@ public class RegisteredBook {
 
     private boolean reserved;
 
-    @Setter
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "enrollment_id")
-    private Enrollment enrollment;
+    private Long enrollmentId;
 
     @Builder
-    public RegisteredBook(Long bookId, UnitAmount unitAmount, SellType sellType) {
+    public RegisteredBook(Long bookId, UnitAmount unitAmount, SellType sellType, Long enrollmentId) {
         this.bookId = bookId;
         this.amount = unitAmount;
         this.sellType = sellType;
+        this.enrollmentId = enrollmentId;
     }
 
     public void reserve() {

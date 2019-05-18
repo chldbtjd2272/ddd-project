@@ -2,12 +2,12 @@ package io.github.wotjd243.aladin.enrollment.application.dto;
 
 import io.github.wotjd243.aladin.enrollment.domain.Event;
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDate;
 
+@Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class EventDto {
 

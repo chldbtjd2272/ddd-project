@@ -1,13 +1,14 @@
 package io.github.wotjd243.aladin.enrollment.domain;
 
-import io.github.wotjd243.aladin.book.domain.RegisteredBook;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Getter
 @Entity
@@ -18,28 +19,24 @@ public class Enrollment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long sellerId;
-
-    @OneToMany(mappedBy = "enrollment", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
-    private List<RegisteredBook> registeredBooks = new ArrayList<>();
+    private String sellerId;
 
     @OneToMany(mappedBy = "enrollment", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     private List<Event> events = new ArrayList<>();
 
-    public Enrollment(Long sellerId, List<RegisteredBook> registeredBooks, List<Event> events) {
+    public Enrollment(String sellerId, List<Event> events) {
         this.sellerId = sellerId;
-        addRegisteredBook(registeredBooks);
         addEvents(events);
-    }
-
-    private void addRegisteredBook(List<RegisteredBook> registeredBooks) {
-        this.registeredBooks.addAll(registeredBooks);
-        registeredBooks.forEach(registeredBook -> registeredBook.setEnrollment(this));
-
     }
 
     private void addEvents(List<Event> events) {
         this.events.addAll(events);
         events.forEach(event -> event.setEnrollment(this));
+    }
+
+    public Optional<Event> getEvent(LocalDate searchDate) {
+        return events.stream()
+                .filter(event -> event.isEventDate(searchDate))
+                .findFirst();
     }
 }

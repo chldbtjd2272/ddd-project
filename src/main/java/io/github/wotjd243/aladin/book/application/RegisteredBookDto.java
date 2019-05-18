@@ -1,11 +1,12 @@
 package io.github.wotjd243.aladin.book.application;
 
-import io.github.wotjd243.aladin.book.domain.RegisteredBook;
 import io.github.wotjd243.aladin.common.domain.UnitAmount;
 import io.github.wotjd243.aladin.enrollment.domain.SellType;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-@ToString
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class RegisteredBookDto {
@@ -21,13 +22,5 @@ public class RegisteredBookDto {
         this.bookId = bookId;
         this.amount = amount;
         this.sellType = sellType;
-    }
-
-    public RegisteredBook toEntity() {
-        return RegisteredBook.builder()
-                .bookId(bookId)
-                .unitAmount(amount)
-                .sellType(sellType)
-                .build();
     }
 }
