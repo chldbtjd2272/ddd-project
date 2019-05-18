@@ -1,8 +1,8 @@
 package io.github.wotjd243.aladin.enrollment.application.dto;
 
+import io.github.wotjd243.aladin.common.domain.UnitAmount;
 import io.github.wotjd243.aladin.enrollment.domain.RegisteredBook;
 import io.github.wotjd243.aladin.enrollment.domain.SellType;
-import io.github.wotjd243.aladin.enrollment.domain.UnitAmount;
 import lombok.*;
 
 @ToString

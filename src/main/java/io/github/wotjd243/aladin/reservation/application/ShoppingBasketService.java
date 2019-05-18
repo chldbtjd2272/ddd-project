@@ -19,6 +19,6 @@ public class ShoppingBasketService {
         Buyer buyer = buyerService.findById(buyerId);
 
         return shoppingBasketRepository.findById(buyer.getId())
-                .orElse(shoppingBasketRepository.save(new ShoppingBasket(buyer.getId())));
+                .orElseGet(() -> shoppingBasketRepository.save(new ShoppingBasket(buyer.getId())));
     }
 }

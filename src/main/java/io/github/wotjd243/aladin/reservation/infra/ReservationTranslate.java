@@ -13,8 +13,6 @@ public class ReservationTranslate {
         return ReservationBookDto.builder()
                 .bookId(reservation.getRegisteredBookId())
                 .amount(reservation.getAmount())
-                .usedDiscountAmount(reservation.getUsedDiscountAmount())
-                .eventDiscountPercent(reservation.getEventDiscountPercent())
                 .build();
     }
 }

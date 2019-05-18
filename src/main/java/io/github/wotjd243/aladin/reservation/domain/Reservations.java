@@ -16,14 +16,14 @@ public class Reservations {
 
     private static final int LIMIT_RESERVATION_COUNT = 15;
 
-    @ElementCollection
+    @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(
             joinColumns = @JoinColumn(name = "shopping_basket_buyer_id")
     )
     private List<Reservation> reservations = new ArrayList<>();
 
     public Reservations(List<Reservation> reservations) {
-        this.reservations.addAll(reservations);
+        this.reservations = new ArrayList<>(reservations);
     }
 
     void remove(Reservation reservation) {

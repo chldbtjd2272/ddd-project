@@ -24,14 +24,14 @@ public class BuyerService {
     public Buyer findById(String id) {
 
         return buyerRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException(String.format("[%s] 존재하지 않는 구매자 입니다.")));
+                .orElseThrow(() -> new NotFoundException(String.format("[%s] 존재하지 않는 구매자 입니다.", id)));
     }
 
     @Transactional
     public Buyer updateBuyer(String id, BuyerUpdateDto update) {
 
         Buyer buyer = buyerRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException(String.format("[%s] 존재하지 않는 구매자 입니다.")));
+                .orElseThrow(() -> new NotFoundException(String.format("[%s] 존재하지 않는 구매자 입니다.", id)));
 
         buyer.update(update.getPassword(), update.getName(), update.getPhoneNumber(), update.getAddress());
         return buyer;

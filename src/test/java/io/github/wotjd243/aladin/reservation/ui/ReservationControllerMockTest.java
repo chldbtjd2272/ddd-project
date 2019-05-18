@@ -44,7 +44,7 @@ public class ReservationControllerMockTest {
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
         )
                 .andDo(print())
-                .andExpect(status().isBadRequest())
+                .andExpect(status().isOk())
                 .andReturn();
 
         //then
@@ -67,7 +67,7 @@ public class ReservationControllerMockTest {
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
         )
                 .andDo(print())
-                .andExpect(status().isBadRequest())
+                .andExpect(status().isOk())
                 .andReturn();
 
         //then
@@ -89,7 +89,7 @@ public class ReservationControllerMockTest {
                 .content(requestBody)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
         )
-                .andExpect(status().isBadRequest())
+                .andExpect(status().isOk())
                 .andDo(print())
                 .andReturn();
 
@@ -116,7 +116,7 @@ public class ReservationControllerMockTest {
                 .content(requestBody)
                 .contentType(MediaType.APPLICATION_JSON_UTF8)
         )
-                .andExpect(status().isBadRequest())
+                .andExpect(status().isOk())
                 .andDo(print())
                 .andReturn();
 
