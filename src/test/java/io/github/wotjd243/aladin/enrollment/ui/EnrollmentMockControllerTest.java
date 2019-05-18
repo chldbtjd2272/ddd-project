@@ -40,7 +40,7 @@ public class EnrollmentMockControllerTest {
                 .content(requestBody)
         )
                 .andDo(print())
-                .andExpect(status().isBadRequest())
+                .andExpect(status().isOk())
                 .andReturn();
 
         //then
@@ -60,7 +60,7 @@ public class EnrollmentMockControllerTest {
                 .content(requestBody)
         )
                 .andDo(print())
-                .andExpect(status().isBadRequest())
+                .andExpect(status().isOk())
                 .andReturn();
 
         //then
@@ -80,7 +80,7 @@ public class EnrollmentMockControllerTest {
                 .content(requestBody)
         )
                 .andDo(print())
-                .andExpect(status().isBadRequest())
+                .andExpect(status().isOk())
                 .andReturn();
 
         //then
