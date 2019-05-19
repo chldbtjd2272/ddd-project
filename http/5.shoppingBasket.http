@@ -221,7 +221,7 @@ DELETE http://localhost:8080/reservation/13
 Content-Type: application/json
 user-id: hojin.lee
 
-### 장바구니 조회 (14권)
+### 장바구니 조회 (14권)a
 GET http://localhost:8080/shopping-basket
 Accept: application/json
 user-id: hojin.lee

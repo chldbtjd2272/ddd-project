@@ -1,328 +1,518 @@
-GET http://localhost:8080/registered-books?pageNumber=2
-Content-Type: application/json
-user-id: cys
+GET http://localhost:8080/shopping-basket
+Accept: application/json
+user-id: hojin.lee
 
-<> 2019-05-19T031636.200.json
+<> 2019-05-19T122913.200.json
 
 ###
 
-GET http://localhost:8080/registered-books?pageNumber=1
+DELETE http://localhost:8080/reservation/13
 Content-Type: application/json
-user-id: cys
+user-id: hojin.lee
 
-<> 2019-05-19T031632.200.json
+<> 2019-05-19T122910.200.json
+
+###
+
+GET http://localhost:8080/shopping-basket
+Accept: application/json
+user-id: hojin.lee
+
+<> 2019-05-19T122858.200.json
+
+###
+
+POST http://localhost:8080/reservation
+Content-Type: application/json
+user-id: hojin.lee
+
+{
+  "bookId": "16"
+}
+
+<> 2019-05-19T122852.200.json
+
+###
+
+POST http://localhost:8080/reservation
+Content-Type: application/json
+user-id: hojin.lee
+
+{
+  "bookId": "15"
+}
+
+<> 2019-05-19T122850.200.json
+
+###
+
+POST http://localhost:8080/reservation
+Content-Type: application/json
+user-id: hojin.lee
+
+{
+  "bookId": "14"
+}
+
+<> 2019-05-19T122848.200.json
+
+###
+
+POST http://localhost:8080/reservation
+Content-Type: application/json
+user-id: hojin.lee
+
+{
+  "bookId": "13"
+}
+
+<> 2019-05-19T122846.200.json
+
+###
+
+POST http://localhost:8080/reservation
+Content-Type: application/json
+user-id: hojin.lee
+
+{
+  "bookId": "12"
+}
+
+<> 2019-05-19T122844.200.json
+
+###
+
+POST http://localhost:8080/reservation
+Content-Type: application/json
+user-id: hojin.lee
+
+{
+  "bookId": "11"
+}
+
+<> 2019-05-19T122842.200.json
+
+###
+
+POST http://localhost:8080/reservation
+Content-Type: application/json
+user-id: hojin.lee
+
+{
+  "bookId": "10"
+}
+
+<> 2019-05-19T122840.200.json
+
+###
+
+POST http://localhost:8080/reservation
+Content-Type: application/json
+user-id: hojin.lee
+
+{
+  "bookId": "9"
+}
+
+<> 2019-05-19T122838.200.json
+
+###
+
+POST http://localhost:8080/reservation
+Content-Type: application/json
+user-id: hojin.lee
+
+{
+  "bookId": "8"
+}
+
+<> 2019-05-19T122836.200.json
+
+###
+
+POST http://localhost:8080/reservation
+Content-Type: application/json
+user-id: hojin.lee
+
+{
+  "bookId": "7"
+}
+
+<> 2019-05-19T122834.200.json
+
+###
+
+POST http://localhost:8080/reservation
+Content-Type: application/json
+user-id: hojin.lee
+
+{
+  "bookId": "6"
+}
+
+<> 2019-05-19T122832.200.json
+
+###
+
+GET http://localhost:8080/shopping-basket
+Accept: application/json
+user-id: hojin.lee
+
+<> 2019-05-19T122802.200.json
+
+###
+
+POST http://localhost:8080/reservation
+Content-Type: application/json
+user-id: hojin.lee
+
+{
+  "bookId": "5"
+}
+
+<> 2019-05-19T122757.200.json
+
+###
+
+GET http://localhost:8080/shopping-basket
+Accept: application/json
+user-id: hojin.lee
+
+<> 2019-05-19T122752.200.json
+
+###
+
+POST http://localhost:8080/reservation
+Content-Type: application/json
+user-id: hojin.lee
+
+{
+  "bookId": "4"
+}
+
+<> 2019-05-19T122748.200.json
+
+###
+
+GET http://localhost:8080/shopping-basket
+Accept: application/json
+user-id: hojin.lee
+
+<> 2019-05-19T122724.200.json
+
+###
+
+POST http://localhost:8080/reservation
+Content-Type: application/json
+user-id: hojin.lee
+
+{
+  "bookId": "3"
+}
+
+<> 2019-05-19T122720.200.json
+
+###
+
+POST http://localhost:8080/reservation
+Content-Type: application/json
+user-id: hojin.lee
+
+{
+  "bookId": "2"
+}
+
+<> 2019-05-19T122717.200.json
+
+###
+
+POST http://localhost:8080/reservation
+Content-Type: application/json
+user-id: hojin.lee
+
+{
+  "bookId": "1"
+}
+
+<> 2019-05-19T122714.200.json
+
+###
+
+POST http://localhost:8080/buyer
+Content-Type: application/json
+
+{
+  "id": "hojin.lee",
+  "password": "password",
+  "name": "sehee",
+  "phoneNumber": "010-1234-5678",
+  "email": "sehee@naver.com",
+  "address": "행당동"
+}
+
+<> 2019-05-19T122708.200.json
+
+###
+
+POST http://localhost:8080/buyer
+Content-Type: application/json
+
+{
+  "id": "hojin.lee",
+  "password": "password",
+  "name": "sehee",
+  "phoneNumber": "010-1234-567",
+  "email": "naver.com",
+  "address": "행당동"
+}
+
+<> 2019-05-19T122705.200.json
+
+###
+
+POST http://localhost:8080/reservation
+Content-Type: application/json
+user-id: hojin.lee
+
+{
+  "bookId": "1"
+}
+
+<> 2019-05-19T122657.200.json
+
+###
+
+POST http://localhost:8080/reservation
+Content-Type: application/json
+user-id: hojin.lee1
+
+{
+  "bookId": "1"
+}
+
+<> 2019-05-19T122653.200.json
+
+###
+
+POST http://localhost:8080/buyer
+Content-Type: application/json
+
+{
+  "id": "hojin.lee",
+  "password": "password",
+  "name": "sehee",
+  "phoneNumber": "010-1234-567",
+  "email": "naver.com",
+  "address": "행당동"
+}
+
+<> 2019-05-19T122644.200.json
 
 ###
 
 POST http://localhost:8080/enrollment
 Content-Type: application/json
-user-id: cys
-Cookie: JSESSIONID=0664D41431AE4343967AB97BCA105D92
+user-id: sehee.kwon
+Cookie: JSESSIONID=E59B58101816F0BEA4FE8F4A8B4F0E29
 
 {
   "startDate": "2019-05-07",
-  "endDate": "2019-05-08",
+  "endDate": "2019-05-19",
   "periodPercent": 20.0
 }
 
-<> 2019-05-19T031628.200.json
+<> 2019-05-19T122634.200.json
+
+###
+
+POST http://localhost:8080/registered-books/used
+Content-Type: application/json
+user-id: sehee.kwon
+Cookie: JSESSIONID=E59B58101816F0BEA4FE8F4A8B4F0E29
+
+{
+  "bookId": 2,
+  "amount": 1000
+}
+
+<> 2019-05-19T122626.200.json
 
 ###
 
 POST http://localhost:8080/registered-books/new
 Content-Type: application/json
-user-id: cys
+user-id: sehee.kwon
 
 {
   "bookId": 1,
   "count": 15
 }
 
-<> 2019-05-19T031619.200.json
+<> 2019-05-19T122621.200.json
+
+###
+
+POST http://localhost:8080/seller
+Content-Type: application/json
+
+{
+  "id": "sehee.kwon",
+  "password": "password",
+  "name": "sehee",
+  "phoneNumber": "010-1234-5678",
+  "email": "sehee@naver.com"
+}
+
+<> 2019-05-19T122610.200.json
+
+###
+
+POST http://localhost:8080/seller
+Content-Type: application/json
+
+{
+  "id": "sehee.kwon",
+  "password": "password",
+  "name": "sehee",
+  "phoneNumber": "010-1234-567",
+  "email": "naver.com"
+}
+
+<> 2019-05-19T122605.200.json
+
+###
+
+GET http://localhost:8080/shopping-basket
+Accept: application/json
+user-id: hojin.lee
+
+<> 2019-05-19T122426.200.json
+
+###
+
+POST http://localhost:8080/reservation
+Content-Type: application/json
+user-id: hojin.lee
+
+{
+  "bookId": "3"
+}
+
+<> 2019-05-19T122424.200.json
+
+###
+
+POST http://localhost:8080/reservation
+Content-Type: application/json
+user-id: hojin.lee
+
+{
+  "bookId": "2"
+}
+
+<> 2019-05-19T122422.200.json
+
+###
+
+POST http://localhost:8080/reservation
+Content-Type: application/json
+user-id: hojin.lee
+
+{
+  "bookId": "1"
+}
+
+<> 2019-05-19T122320.200.json
+
+###
+
+POST http://localhost:8080/reservation
+Content-Type: application/json
+user-id: hojin.lee
+
+{
+  "bookId": "1"
+}
+
+<> 2019-05-19T122315.200.json
+
+###
+
+POST http://localhost:8080/reservation
+Content-Type: application/json
+user-id: hojin.lee1
+
+{
+  "bookId": "1"
+}
+
+<> 2019-05-19T122254.200.json
+
+###
+
+GET http://localhost:8080/shopping-basket
+Accept: application/json
+user-id: hojin.lee
+
+<> 2019-05-19T122248.200.json
+
+###
+
+GET http://localhost:8080/shopping-basket
+Accept: application/json
+user-id: hojin.lee1
+
+<> 2019-05-19T122243.200.json
+
+###
+
+POST http://localhost:8080/buyer/login
+Content-Type: application/json
+
+{
+  "id": "hojin.lee",
+  "password": "password"
+}
+
+<> 2019-05-19T122233.200.json
+
+###
+
+POST http://localhost:8080/buyer
+Content-Type: application/json
+
+{
+  "id": "hojin.lee",
+  "password": "password",
+  "name": "sehee",
+  "phoneNumber": "010-1234-5678",
+  "email": "sehee@naver.com",
+  "address": "행당동"
+}
+
+<> 2019-05-19T122228.200.json
+
+###
+
+POST http://localhost:8080/buyer
+Content-Type: application/json
+
+{
+  "id": "hojin.lee",
+  "password": "password",
+  "name": "sehee",
+  "phoneNumber": "010-1234-567",
+  "email": "naver.com",
+  "address": "행당동"
+}
+
+<> 2019-05-19T122224.200.json
 
 ###
 
 POST http://localhost:8080/enrollment
 Content-Type: application/json
-user-id: cys
-Cookie: JSESSIONID=E3DA436493B827362A30C2E84858E5AF
-
-{
-  "startDate": "2019-05-07",
-  "endDate": "2019-05-08",
-  "periodPercent": 20.0
-}
-
-<> 2019-05-19T031614.200.json
-
-###
-
-POST http://localhost:8080/registered-books/new
-Content-Type: application/json
-user-id: cys
-
-{
-  "bookId": 1,
-  "count": 15
-}
-
-<> 2019-05-19T031608.200.json
-
-###
-
-GET http://localhost:8080/registered-books?pageNumber=3
-Content-Type: application/json
-user-id: cys
-
-<> 2019-05-19T031408.200.json
-
-###
-
-GET http://localhost:8080/registered-books?pageNumber=2
-Content-Type: application/json
-user-id: cys
-
-<> 2019-05-19T031355.200.json
-
-###
-
-GET http://localhost:8080/registered-books?pageNumber=1
-Content-Type: application/json
-user-id: cys
-
-<> 2019-05-19T031349.200.json
-
-###
-
-POST http://localhost:8080/enrollment
-Content-Type: application/json
-user-id: cys
-Cookie: JSESSIONID=E3DA436493B827362A30C2E84858E5AF
-
-{
-  "startDate": "2019-05-07",
-  "endDate": "2019-05-08",
-  "periodPercent": 20.0
-}
-
-<> 2019-05-19T031341.200.json
-
-###
-
-POST http://localhost:8080/registered-books/new
-Content-Type: application/json
-user-id: cys
-
-{
-  "bookId": 1,
-  "count": 15
-}
-
-<> 2019-05-19T031314.200.json
-
-###
-
-POST http://localhost:8080/enrollment
-Content-Type: application/json
-user-id: qqq
-Cookie: JSESSIONID=A607292ED33F2883758D42056D4E8971
-
-{
-  "startDate": "2019-05-07",
-  "endDate": "2019-05-08",
-  "periodPercent": 20.0
-}
-
-<> 2019-05-19T020605.200.json
-
-###
-
-POST http://localhost:8080/registered-books/new
-Content-Type: application/json
-user-id: cys
-
-{
-  "bookId": 1,
-  "count": 15
-}
-
-<> 2019-05-19T020556.200.json
-
-###
-
-POST http://localhost:8080/enrollment
-Content-Type: application/json
-user-id: qqq
-Cookie: JSESSIONID=5AD80EAF7E33EDA92D1E9A6F6017BC39
-
-{
-  "startDate": "2019-05-07",
-  "endDate": "2019-05-08",
-  "periodPercent": 20.0
-}
-
-<> 2019-05-19T020550.200.json
-
-###
-
-POST http://localhost:8080/registered-books/new
-Content-Type: application/json
-user-id: cys
-
-{
-  "bookId": 1,
-  "count": 15
-}
-
-<> 2019-05-19T020547.200.json
-
-###
-
-POST http://localhost:8080/enrollment
-Content-Type: application/json
-user-id: qqq
-Cookie: JSESSIONID=5AD80EAF7E33EDA92D1E9A6F6017BC39
-
-{
-  "startDate": "2019-05-07",
-  "endDate": "2019-05-08",
-  "periodPercent": 20.0
-}
-
-<> 2019-05-19T020348.500.json
-
-###
-
-POST http://localhost:8080/registered-books/new
-Content-Type: application/json
-user-id: cys
-
-{
-  "bookId": 1,
-  "count": 15
-}
-
-<> 2019-05-19T020340.200.json
-
-###
-
-POST http://localhost:8080/enrollment
-Content-Type: application/json
-user-id: qqq
-Cookie: JSESSIONID=C2CF673C816E33003EFCC97B3B4EBA44
-
-{
-  "startDate": "2019-05-07",
-  "endDate": "2019-05-08",
-  "periodPercent": 20.0
-}
-
-<> 2019-05-19T020335.200.json
-
-###
-
-POST http://localhost:8080/enrollment
-Content-Type: application/json
-user-id: qqq
-Cookie: JSESSIONID=C2CF673C816E33003EFCC97B3B4EBA44
-
-{
-  "startDate": "2019-05-07",
-  "endDate": "2019-05-08",
-  "periodPercent": 20.0
-}
-
-<> 2019-05-19T020332.200.json
-
-###
-
-POST http://localhost:8080/registered-books/new
-Content-Type: application/json
-user-id: cys
-
-{
-  "bookId": 1,
-  "count": 15
-}
-
-<> 2019-05-19T020322.200.json
-
-###
-
-POST http://localhost:8080/registered-books/new
-Content-Type: application/json
-user-id: cys
-
-{
-  "bookId": 1,
-  "count": 15
-}
-
-<> 2019-05-19T020317.200.json
-
-###
-
-POST http://localhost:8080/enrollment
-Content-Type: application/json
-user-id: qqq
-Cookie: JSESSIONID=C2CF673C816E33003EFCC97B3B4EBA44
-
-{
-  "startDate": "2019-05-07",
-  "endDate": "2019-05-08",
-  "periodPercent": 20.0
-}
-
-<> 2019-05-19T020304.500.json
-
-###
-
-POST http://localhost:8080/enrollment
-Content-Type: application/json
-user-id: qqq
-Cookie: JSESSIONID=C2CF673C816E33003EFCC97B3B4EBA44
-
-{
-  "startDate": "2019-05-07",
-  "endDate": "2019-05-08",
-  "periodPercent": 20.0
-}
-
-<> 2019-05-19T020232.500.json
-
-###
-
-POST http://localhost:8080/registered-books/new
-Content-Type: application/json
-user-id: cys
-
-{
-  "bookId": 1,
-  "count": 15
-}
-
-<> 2019-05-19T020220.200.json
-
-###
-
-POST http://localhost:8080/enrollment
-Content-Type: application/json
-user-id: qqq
-Cookie: JSESSIONID=01ACA440866884FEBB731A47D7C543ED
-
-{
-  "startDate": "2019-05-07",
-  "endDate": "2019-05-08",
-  "periodPercent": 20.0
-}
-
-<> 2019-05-19T020214.200.json
-
-###
-
-POST http://localhost:8080/enrollment
-Content-Type: application/json
-user-id: cys
+user-id: sehee.kwon
 
 {
   "startDate": "2019-05-07",
@@ -330,13 +520,14 @@ user-id: cys
   "periodPercent": 20.0
 }
 
-<> 2019-05-19T020208.200.json
+<> 2019-05-19T122157.200.json
 
 ###
 
 POST http://localhost:8080/enrollment
 Content-Type: application/json
-user-id: qqq
+user-id: sehee.kwon
+Cookie: JSESSIONID=B596BBA664F5BFA73CF791392E9C8B1B
 
 {
   "startDate": "2019-05-07",
@@ -344,26 +535,66 @@ user-id: qqq
   "periodPercent": 20.0
 }
 
-<> 2019-05-19T020132.200.json
+<> 2019-05-19T122145.200.json
+
+###
+
+POST http://localhost:8080/registered-books/used
+Content-Type: application/json
+user-id: sehee.kwon
+
+{
+  "bookId": 1,
+  "amount": 999
+}
+
+<> 2019-05-19T122130.200.json
 
 ###
 
 POST http://localhost:8080/registered-books/new
 Content-Type: application/json
-user-id: cys
+user-id: sehee.kwon
+
+{
+  "bookId": 1,
+  "count": 0
+}
+
+<> 2019-05-19T122118.200.json
+
+###
+
+POST http://localhost:8080/registered-books/used
+Content-Type: application/json
+user-id: sehee.kwon
+Cookie: JSESSIONID=B596BBA664F5BFA73CF791392E9C8B1B
+
+{
+  "bookId": 2,
+  "amount": 1000
+}
+
+<> 2019-05-19T122102.200.json
+
+###
+
+POST http://localhost:8080/registered-books/new
+Content-Type: application/json
+user-id: sehee.kwon
 
 {
   "bookId": 1,
   "count": 15
 }
 
-<> 2019-05-19T020123.200.json
+<> 2019-05-19T121955.200.json
 
 ###
 
 POST http://localhost:8080/enrollment
 Content-Type: application/json
-user-id: qqq
+user-id: sehee.kwon
 
 {
   "startDate": "2019-05-07",
@@ -371,282 +602,7 @@ user-id: qqq
   "periodPercent": 20.0
 }
 
-<> 2019-05-19T015935.200.json
-
-###
-
-POST http://localhost:8080/enrollment
-Content-Type: application/json
-user-id: cys
-
-{
-  "startDate": "2019-05-07",
-  "endDate": "2019-05-07",
-  "periodPercent": -1
-}
-
-<> 2019-05-19T015929.200.json
-
-###
-
-POST http://localhost:8080/registered-books/new
-Content-Type: application/json
-user-id: cys
-
-{
-  "bookId": 1,
-  "count": 15
-}
-
-<> 2019-05-19T015921.200.json
-
-###
-
-POST http://localhost:8080/registered-books/new
-Content-Type: application/json
-user-id: cys
-
-{
-  "bookId": 1,
-  "count": 15
-}
-
-<> 2019-05-19T015859.200.json
-
-###
-
-GET http://localhost:8080/registered-books?pageNumber=1
-Content-Type: application/json
-user-id: cys
-
-<> 2019-05-19T015123.200.json
-
-###
-
-POST http://localhost:8080/enrollment
-Content-Type: application/json
-user-id: cys
-Cookie: JSESSIONID=01ACA440866884FEBB731A47D7C543ED
-
-{
-  "startDate": "2019-05-07",
-  "endDate": "2019-05-08",
-  "periodPercent": 20.0
-}
-
-<> 2019-05-19T015110.200.json
-
-###
-
-POST http://localhost:8080/registered-books/new
-Content-Type: application/json
-user-id: cys
-
-{
-  "bookId": 1,
-  "count": 15
-}
-
-<> 2019-05-19T015055.200.json
-
-###
-
-POST http://localhost:8080/enrollment
-Content-Type: application/json
-user-id: cys
-Set-Cookie: JSESSIONID=59A946520389D3AF77700A8C13BC0E47
-
-{
-  "startDate": "2019-05-07",
-  "endDate": "2019-05-08",
-  "periodPercent": 20.0
-}
-
-<> 2019-05-19T015001.200.json
-
-###
-
-POST http://localhost:8080/registered-books/new
-Content-Type: application/json
-user-id: cys
-
-{
-  "bookId": 1,
-  "count": 15
-}
-
-<> 2019-05-19T014916.200.json
-
-###
-
-POST http://localhost:8080/enrollment
-Content-Type: application/json
-user-id: cys
-
-{
-  "startDate": "2019-05-07",
-  "endDate": "2019-05-08",
-  "periodPercent": 20.0
-}
-
-<> 2019-05-19T014352.200.json
-
-###
-
-POST http://localhost:8080/registered-books/new
-Content-Type: application/json
-user-id: cys
-
-{
-  "bookId": 1,
-  "count": 15
-}
-
-<> 2019-05-19T014347.200.json
-
-###
-
-POST http://localhost:8080/enrollment
-Content-Type: application/json
-user-id: cys
-
-{
-  "startDate": "2019-05-07",
-  "endDate": "2019-05-08",
-  "periodPercent": 20.0
-}
-
-<> 2019-05-19T014327.200.json
-
-###
-
-POST http://localhost:8080/enrollment
-Content-Type: application/json
-user-id: cys
-
-{
-  "startDate": "2019-05-07",
-  "endDate": "2019-05-08",
-  "periodPercent": 20.0
-}
-
-<> 2019-05-19T014234.200.json
-
-###
-
-POST http://localhost:8080/registered-books/new
-Content-Type: application/json
-user-id: cys
-
-{
-  "bookId": 1,
-  "count": 15
-}
-
-<> 2019-05-19T014221.200.json
-
-###
-
-POST http://localhost:8080/enrollment
-Content-Type: application/json
-user-id: cys
-
-{
-  "startDate": "2019-05-07",
-  "endDate": "2019-05-08",
-  "periodPercent": 20.0
-}
-
-<> 2019-05-19T014200.200.json
-
-###
-
-POST http://localhost:8080/registered-books/new
-Content-Type: application/json
-user-id: cys
-
-{
-  "bookId": 1,
-  "count": 15
-}
-
-<> 2019-05-19T014146.200.json
-
-###
-
-POST http://localhost:8080/enrollment
-Content-Type: application/json
-user-id: cys
-
-{
-  "startDate": "2019-05-07",
-  "endDate": "2019-05-08",
-  "periodPercent": 20.0
-}
-
-<> 2019-05-19T013946.200.json
-
-###
-
-POST http://localhost:8080/registered-books/new
-Content-Type: application/json
-user-id: cys
-
-{
-  "bookId": 1,
-  "count": 15
-}
-
-<> 2019-05-19T013930.200.json
-
-###
-
-POST http://localhost:8080/enrollment
-Content-Type: application/json
-user-id: cys
-
-{
-  "startDate": "2019-05-07",
-  "endDate": "2019-05-08",
-  "periodPercent": 20.0
-}
-
-<> 2019-05-19T013859.200.json
-
-###
-
-POST http://localhost:8080/registered-books/new
-Content-Type: application/json
-user-id: cys
-
-{
-  "bookId": 1,
-  "count": 15
-}
-
-<> 2019-05-19T013833.200.json
-
-###
-
-GET http://localhost:8080/registered-books?pageNumber=1
-Content-Type: application/json
-user-id: cys
-
-<> 2019-05-19T013800.200.json
-
-###
-
-POST http://localhost:8080/enrollment
-Content-Type: application/json
-user-id: cys
-
-{
-  "startDate": "2019-05-07",
-  "endDate": "2019-05-08",
-  "periodPercent": 20.0
-}
-
-<> 2019-05-19T013730.200.json
+<> 2019-05-19T121949.200.json
 
 ###
 

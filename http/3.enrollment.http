@@ -5,11 +5,23 @@
 # * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
 
+### 등록된 책이 없습니다.
+POST http://localhost:8080/enrollment
+Content-Type: application/json
+user-id: sehee.kwon
+
+{
+  "startDate": "2019-05-07",
+  "endDate": "2019-05-08",
+  "periodPercent": 20.0
+}
+
+
 
 ### 새책 세션 저장
 POST http://localhost:8080/registered-books/new
 Content-Type: application/json
-user-id: cys
+user-id: sehee.kwon
 
 {
   "bookId": 1,
@@ -19,7 +31,8 @@ user-id: cys
 ### 중고책 세션 저장
 POST http://localhost:8080/registered-books/used
 Content-Type: application/json
-user-id: cys
+user-id: sehee.kwon
+Cookie: JSESSIONID=E59B58101816F0BEA4FE8F4A8B4F0E29
 
 {
   "bookId": 2,
@@ -30,7 +43,7 @@ user-id: cys
 ### 새책 세션 저장(잘못된 파라미터)
 POST http://localhost:8080/registered-books/new
 Content-Type: application/json
-user-id: cys
+user-id: sehee.kwon
 
 {
   "bookId": 1,
@@ -40,7 +53,7 @@ user-id: cys
 ### 중고책 세션 저장(잘못된 파라미터)
 POST http://localhost:8080/registered-books/used
 Content-Type: application/json
-user-id: cys
+user-id: sehee.kwon
 
 {
   "bookId": 1,
@@ -50,7 +63,7 @@ user-id: cys
 ### 중고책 세션 저장(없는 책 등록)
 POST http://localhost:8080/registered-books/used
 Content-Type: application/json
-user-id: cys
+user-id: sehee.kwon
 
 {
   "bookId": 100,
@@ -61,19 +74,19 @@ user-id: cys
 ### 세션에 등록된 책들 저장
 POST http://localhost:8080/enrollment
 Content-Type: application/json
-user-id: cys
-Cookie: JSESSIONID=0664D41431AE4343967AB97BCA105D92
+user-id: sehee.kwon
+Cookie: JSESSIONID=E59B58101816F0BEA4FE8F4A8B4F0E29
 
 {
   "startDate": "2019-05-07",
-  "endDate": "2019-05-08",
+  "endDate": "2019-05-19",
   "periodPercent": 20.0
 }
 
 ### 이벤트 기간 잘못 선정
 POST http://localhost:8080/enrollment
 Content-Type: application/json
-user-id: cys
+user-id: sehee.kwon
 
 {
   "startDate": "2019-05-07",
@@ -84,7 +97,7 @@ user-id: cys
 ### 잘못된 할인율 파라미터
 POST http://localhost:8080/enrollment
 Content-Type: application/json
-user-id: cys
+user-id: sehee.kwon
 
 {
   "startDate": "2019-05-07",
@@ -92,22 +105,12 @@ user-id: cys
   "periodPercent": -1
 }
 
-### 등록된 책이 없습니다.
-POST http://localhost:8080/enrollment
-Content-Type: application/json
-user-id: qqq
-
-{
-  "startDate": "2019-05-07",
-  "endDate": "2019-05-08",
-  "periodPercent": 20.0
-}
 
 ### 등록한 회원과 로그인한 회원이 다릅니다.
 POST http://localhost:8080/enrollment
 Content-Type: application/json
 user-id: qqq
-Cookie: JSESSIONID=A607292ED33F2883758D42056D4E8971
+Cookie: JSESSIONID=0DD059627BCAB028FCFDEFBB300BFFCE
 
 {
   "startDate": "2019-05-07",

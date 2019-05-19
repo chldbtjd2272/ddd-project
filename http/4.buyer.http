@@ -6,7 +6,7 @@
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
 
 ### 구매자 조회(없는 구매자)
-GET http://localhost:8080/buyer/sehee.kwon
+GET http://localhost:8080/buyer/hojin.lee
 Content-Type: application/json
 
 ### 구매자 생성(잘못된 파라미터)
@@ -14,7 +14,7 @@ POST http://localhost:8080/buyer
 Content-Type: application/json
 
 {
-  "id": "sehee.kwon",
+  "id": "hojin.lee",
   "password": "password",
   "name": "sehee",
   "phoneNumber": "010-1234-567",
@@ -27,7 +27,7 @@ POST http://localhost:8080/buyer
 Content-Type: application/json
 
 {
-  "id": "sehee.kwon",
+  "id": "hojin.lee",
   "password": "password",
   "name": "sehee",
   "phoneNumber": "010-1234-5678",
@@ -36,7 +36,7 @@ Content-Type: application/json
 }
 
 ### 구매자 조회(정상)
-GET http://localhost:8080/buyer/sehee.kwon
+GET http://localhost:8080/buyer/hojin.lee
 Content-Type: application/json
 
 ### 구매자 생성(같은 아이디로 생성)
@@ -44,7 +44,7 @@ POST http://localhost:8080/buyer
 Content-Type: application/json
 
 {
-  "id": "sehee.kwon",
+  "id": "hojin.lee",
   "password": "password",
   "name": "sehee",
   "phoneNumber": "010-1234-5678",
@@ -55,7 +55,7 @@ Content-Type: application/json
 ### 구매자 변경
 PUT http://localhost:8080/buyer
 Content-Type: application/json
-user-id: sehee.kwon
+user-id: hojin.lee
 
 {
   "password": "password",
@@ -69,7 +69,7 @@ POST http://localhost:8080/buyer/login
 Content-Type: application/json
 
 {
-  "id": "sehee.kwon2",
+  "id": "hojin.lee",
   "password": "password"
 }
 
@@ -78,7 +78,7 @@ POST http://localhost:8080/buyer/login
 Content-Type: application/json
 
 {
-  "id": "sehee.kwon",
+  "id": "hojin.lee",
   "password": "password2"
 }
 
@@ -87,7 +87,7 @@ POST http://localhost:8080/buyer/login
 Content-Type: application/json
 
 {
-  "id": "sehee.kwon",
+  "id": "hojin.lee",
   "password": "password"
 }
 
